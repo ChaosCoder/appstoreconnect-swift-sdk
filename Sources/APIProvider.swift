@@ -18,16 +18,16 @@ import FoundationNetworking
 public typealias RequestCompletionHandler<T> = (Result<T, Swift.Error>) -> Void
 
 /// The configuration needed to set up the API Provider including all needed information for performing API requests.
-public struct APIConfiguration {
+public struct APIConfiguration: Equatable, Hashable {
 
     /// Your private key ID from App Store Connect (Ex: 2X9R4HXF34)
-    let privateKeyID: String
+    public let privateKeyID: String
 
     /// Your private key from App Store Connect
-    let privateKey: JWT.PrivateKey
+    public let privateKey: JWT.PrivateKey
 
     /// Your issuer ID from the API Keys page in App Store Connect (Ex: 57246542-96fe-1a63-e053-0824d011072a)
-    let issuerID: String
+    public let issuerID: String
 
     /// Creates a new API configuration to use for initialising the API Provider.
     ///
