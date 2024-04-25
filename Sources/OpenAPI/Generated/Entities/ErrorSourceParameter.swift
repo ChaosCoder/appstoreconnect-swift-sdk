@@ -4,7 +4,7 @@
 import Foundation
 
 /// Parameter
-public struct ErrorSourceParameter: Codable {
+public struct ErrorSourceParameter: Codable, Equatable {
 	public var parameter: String
 
 	public init(parameter: String) {

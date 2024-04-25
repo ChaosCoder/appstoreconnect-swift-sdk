@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardReleaseCreateRequest: Codable {
+public struct GameCenterLeaderboardReleaseCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -14,14 +14,14 @@ public struct GameCenterLeaderboardReleaseCreateRequest: Codable {
 			case gameCenterLeaderboardReleases
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var gameCenterDetail: GameCenterDetail
 			public var gameCenterLeaderboard: GameCenterLeaderboard
 
-			public struct GameCenterDetail: Codable {
+			public struct GameCenterDetail: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -62,10 +62,10 @@ public struct GameCenterLeaderboardReleaseCreateRequest: Codable {
 				}
 			}
 
-			public struct GameCenterLeaderboard: Codable {
+			public struct GameCenterLeaderboard: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

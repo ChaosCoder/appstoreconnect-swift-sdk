@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct WinBackOfferPricesResponse: Codable {
+public struct WinBackOfferPricesResponse: Codable, Equatable {
 	public var data: [WinBackOfferPrice]
 	public var included: [IncludedItem]?
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case territory(Territory)
 		case subscriptionPricePoint(SubscriptionPricePoint)
 

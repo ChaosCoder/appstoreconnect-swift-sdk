@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct MarketplaceDomainResponse: Codable {
+public struct MarketplaceDomainResponse: Codable, Equatable {
 	/// MarketplaceDomain
 	///
 	/// - warning: Deprecated.

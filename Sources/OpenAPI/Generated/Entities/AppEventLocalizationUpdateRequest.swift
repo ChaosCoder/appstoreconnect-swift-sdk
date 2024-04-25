@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppEventLocalizationUpdateRequest: Codable {
+public struct AppEventLocalizationUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct AppEventLocalizationUpdateRequest: Codable {
 			case appEventLocalizations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String?
 			public var shortDescription: String?
 			public var longDescription: String?

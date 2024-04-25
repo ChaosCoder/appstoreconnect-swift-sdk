@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct WinBackOfferPriceInlineCreate: Codable, Identifiable {
+public struct WinBackOfferPriceInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 

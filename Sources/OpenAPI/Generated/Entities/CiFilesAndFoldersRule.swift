@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiFilesAndFoldersRule: Codable {
+public struct CiFilesAndFoldersRule: Codable, Equatable {
 	public var mode: Mode?
 	public var matchers: [CiStartConditionFileMatcher]?
 

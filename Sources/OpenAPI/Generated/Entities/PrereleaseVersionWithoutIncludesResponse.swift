@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct PrereleaseVersionWithoutIncludesResponse: Codable {
+public struct PrereleaseVersionWithoutIncludesResponse: Codable, Equatable {
 	/// PrereleaseVersion
 	public var data: PrereleaseVersion
 	public var links: DocumentLinks

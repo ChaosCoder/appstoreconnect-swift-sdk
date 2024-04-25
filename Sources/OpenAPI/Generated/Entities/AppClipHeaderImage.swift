@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppClipHeaderImage: Codable, Identifiable {
+public struct AppClipHeaderImage: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppClipHeaderImage: Codable, Identifiable {
 		case appClipHeaderImages
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var sourceFileChecksum: String?
@@ -52,13 +52,13 @@ public struct AppClipHeaderImage: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appClipDefaultExperienceLocalization: AppClipDefaultExperienceLocalization?
 
-		public struct AppClipDefaultExperienceLocalization: Codable {
+		public struct AppClipDefaultExperienceLocalization: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

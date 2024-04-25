@@ -3,12 +3,12 @@
 
 import Foundation
 
-public struct DiagnosticInsight: Codable {
+public struct DiagnosticInsight: Codable, Equatable {
 	public var insightType: DiagnosticInsightType?
 	public var direction: DiagnosticInsightDirection?
 	public var referenceVersions: [ReferenceVersion]?
 
-	public struct ReferenceVersion: Codable {
+	public struct ReferenceVersion: Codable, Equatable {
 		public var version: String?
 		public var value: Double?
 

@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct SubscriptionPriceCreateRequest: Codable {
+public struct SubscriptionPriceCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes?
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct SubscriptionPriceCreateRequest: Codable {
 			case subscriptionPrices
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var startDate: String?
 			public var isPreserveCurrentPrice: Bool?
 
@@ -37,15 +37,15 @@ public struct SubscriptionPriceCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var subscription: Subscription
 			public var territory: Territory?
 			public var subscriptionPricePoint: SubscriptionPricePoint
 
-			public struct Subscription: Codable {
+			public struct Subscription: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -86,10 +86,10 @@ public struct SubscriptionPriceCreateRequest: Codable {
 				}
 			}
 
-			public struct Territory: Codable {
+			public struct Territory: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -130,10 +130,10 @@ public struct SubscriptionPriceCreateRequest: Codable {
 				}
 			}
 
-			public struct SubscriptionPricePoint: Codable {
+			public struct SubscriptionPricePoint: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

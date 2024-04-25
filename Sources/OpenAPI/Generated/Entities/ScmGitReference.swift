@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ScmGitReference: Codable, Identifiable {
+public struct ScmGitReference: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct ScmGitReference: Codable, Identifiable {
 		case scmGitReferences
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var canonicalName: String?
 		public var isDeleted: Bool?
@@ -44,13 +44,13 @@ public struct ScmGitReference: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var repository: Repository?
 
-		public struct Repository: Codable {
+		public struct Repository: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

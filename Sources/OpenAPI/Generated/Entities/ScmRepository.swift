@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ScmRepository: Codable, Identifiable {
+public struct ScmRepository: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct ScmRepository: Codable, Identifiable {
 		case scmRepositories
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var lastAccessedDate: Date?
 		public var httpCloneURL: URL?
 		public var sshCloneURL: URL?
@@ -48,16 +48,16 @@ public struct ScmRepository: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var scmProvider: ScmProvider?
 		public var defaultBranch: DefaultBranch?
 		public var gitReferences: GitReferences?
 		public var pullRequests: PullRequests?
 
-		public struct ScmProvider: Codable {
+		public struct ScmProvider: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -98,10 +98,10 @@ public struct ScmRepository: Codable, Identifiable {
 			}
 		}
 
-		public struct DefaultBranch: Codable {
+		public struct DefaultBranch: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -142,7 +142,7 @@ public struct ScmRepository: Codable, Identifiable {
 			}
 		}
 
-		public struct GitReferences: Codable {
+		public struct GitReferences: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -160,7 +160,7 @@ public struct ScmRepository: Codable, Identifiable {
 			}
 		}
 
-		public struct PullRequests: Codable {
+		public struct PullRequests: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

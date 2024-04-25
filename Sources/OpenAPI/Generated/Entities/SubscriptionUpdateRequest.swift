@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct SubscriptionUpdateRequest: Codable {
+public struct SubscriptionUpdateRequest: Codable, Equatable {
 	public var data: Data
 	public var included: [IncludedItem]?
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -17,7 +17,7 @@ public struct SubscriptionUpdateRequest: Codable {
 			case subscriptions
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String?
 			public var isFamilySharable: Bool?
 			public var subscriptionPeriod: SubscriptionPeriod?
@@ -60,15 +60,15 @@ public struct SubscriptionUpdateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var introductoryOffers: IntroductoryOffers?
 			public var promotionalOffers: PromotionalOffers?
 			public var prices: Prices?
 
-			public struct IntroductoryOffers: Codable {
+			public struct IntroductoryOffers: Codable, Equatable {
 				public var data: [Datum]?
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -109,10 +109,10 @@ public struct SubscriptionUpdateRequest: Codable {
 				}
 			}
 
-			public struct PromotionalOffers: Codable {
+			public struct PromotionalOffers: Codable, Equatable {
 				public var data: [Datum]?
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -153,10 +153,10 @@ public struct SubscriptionUpdateRequest: Codable {
 				}
 			}
 
-			public struct Prices: Codable {
+			public struct Prices: Codable, Equatable {
 				public var data: [Datum]?
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -242,7 +242,7 @@ public struct SubscriptionUpdateRequest: Codable {
 		}
 	}
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case subscriptionPromotionalOfferInlineCreate(SubscriptionPromotionalOfferInlineCreate)
 		case subscriptionPriceInlineCreate(SubscriptionPriceInlineCreate)
 		case subscriptionIntroductoryOfferInlineCreate(SubscriptionIntroductoryOfferInlineCreate)

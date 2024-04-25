@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionIntroductoryOfferInlineCreate: Codable, Identifiable {
+public struct SubscriptionIntroductoryOfferInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 	public var attributes: Attributes
@@ -13,7 +13,7 @@ public struct SubscriptionIntroductoryOfferInlineCreate: Codable, Identifiable {
 		case subscriptionIntroductoryOffers
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var startDate: String?
 		public var endDate: String?
 		public var duration: SubscriptionOfferDuration
@@ -47,15 +47,15 @@ public struct SubscriptionIntroductoryOfferInlineCreate: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var subscription: Subscription?
 		public var territory: Territory?
 		public var subscriptionPricePoint: SubscriptionPricePoint?
 
-		public struct Subscription: Codable {
+		public struct Subscription: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -96,10 +96,10 @@ public struct SubscriptionIntroductoryOfferInlineCreate: Codable, Identifiable {
 			}
 		}
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -140,10 +140,10 @@ public struct SubscriptionIntroductoryOfferInlineCreate: Codable, Identifiable {
 			}
 		}
 
-		public struct SubscriptionPricePoint: Codable {
+		public struct SubscriptionPricePoint: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

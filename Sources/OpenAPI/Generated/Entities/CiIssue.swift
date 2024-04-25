@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiIssue: Codable, Identifiable {
+public struct CiIssue: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct CiIssue: Codable, Identifiable {
 		case ciIssues
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var issueType: IssueType?
 		public var message: String?
 		public var fileSource: FileLocation?

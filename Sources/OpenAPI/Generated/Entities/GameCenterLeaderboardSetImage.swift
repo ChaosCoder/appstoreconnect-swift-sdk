@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardSetImage: Codable, Identifiable {
+public struct GameCenterLeaderboardSetImage: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterLeaderboardSetImage: Codable, Identifiable {
 		case gameCenterLeaderboardSetImages
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var imageAsset: ImageAsset?
@@ -48,13 +48,13 @@ public struct GameCenterLeaderboardSetImage: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var gameCenterLeaderboardSetLocalization: GameCenterLeaderboardSetLocalization?
 
-		public struct GameCenterLeaderboardSetLocalization: Codable {
+		public struct GameCenterLeaderboardSetLocalization: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

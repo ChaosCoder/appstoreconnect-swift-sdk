@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppEventScreenshot: Codable, Identifiable {
+public struct AppEventScreenshot: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppEventScreenshot: Codable, Identifiable {
 		case appEventScreenshots
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var imageAsset: ImageAsset?
@@ -56,13 +56,13 @@ public struct AppEventScreenshot: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appEventLocalization: AppEventLocalization?
 
-		public struct AppEventLocalization: Codable {
+		public struct AppEventLocalization: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

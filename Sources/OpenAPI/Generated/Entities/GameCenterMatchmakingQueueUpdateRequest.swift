@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingQueueUpdateRequest: Codable {
+public struct GameCenterMatchmakingQueueUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -16,7 +16,7 @@ public struct GameCenterMatchmakingQueueUpdateRequest: Codable {
 			case gameCenterMatchmakingQueues
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var classicMatchmakingBundleIDs: [String]?
 
 			public init(classicMatchmakingBundleIDs: [String]? = nil) {
@@ -34,14 +34,14 @@ public struct GameCenterMatchmakingQueueUpdateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var ruleSet: RuleSet?
 			public var experimentRuleSet: ExperimentRuleSet?
 
-			public struct RuleSet: Codable {
+			public struct RuleSet: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -82,10 +82,10 @@ public struct GameCenterMatchmakingQueueUpdateRequest: Codable {
 				}
 			}
 
-			public struct ExperimentRuleSet: Codable {
+			public struct ExperimentRuleSet: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AnalyticsReportSegment: Codable, Identifiable {
+public struct AnalyticsReportSegment: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct AnalyticsReportSegment: Codable, Identifiable {
 		case analyticsReportSegments
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var checksum: String?
 		public var sizeInBytes: Int?
 		public var url: URL?

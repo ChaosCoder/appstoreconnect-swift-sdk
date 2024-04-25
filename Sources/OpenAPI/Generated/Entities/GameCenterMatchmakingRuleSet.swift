@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingRuleSet: Codable, Identifiable {
+public struct GameCenterMatchmakingRuleSet: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterMatchmakingRuleSet: Codable, Identifiable {
 		case gameCenterMatchmakingRuleSets
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var referenceName: String?
 		public var ruleLanguageVersion: Int?
 		public var minPlayers: Int?
@@ -44,17 +44,17 @@ public struct GameCenterMatchmakingRuleSet: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var teams: Teams?
 		public var rules: Rules?
 		public var matchmakingQueues: MatchmakingQueues?
 
-		public struct Teams: Codable {
+		public struct Teams: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -101,12 +101,12 @@ public struct GameCenterMatchmakingRuleSet: Codable, Identifiable {
 			}
 		}
 
-		public struct Rules: Codable {
+		public struct Rules: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -153,12 +153,12 @@ public struct GameCenterMatchmakingRuleSet: Codable, Identifiable {
 			}
 		}
 
-		public struct MatchmakingQueues: Codable {
+		public struct MatchmakingQueues: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

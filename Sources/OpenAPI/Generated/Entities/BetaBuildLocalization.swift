@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaBuildLocalization: Codable, Identifiable {
+public struct BetaBuildLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct BetaBuildLocalization: Codable, Identifiable {
 		case betaBuildLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var whatsNew: String?
 		public var locale: String?
 
@@ -36,14 +36,14 @@ public struct BetaBuildLocalization: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var build: Build?
 
-		public struct Build: Codable {
+		public struct Build: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

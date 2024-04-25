@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct MarketplaceWebhook: Codable, Identifiable {
+public struct MarketplaceWebhook: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct MarketplaceWebhook: Codable, Identifiable {
 		case marketplaceWebhooks
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var endpointURL: URL?
 
 		public init(endpointURL: URL? = nil) {

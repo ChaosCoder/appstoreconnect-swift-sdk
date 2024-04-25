@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiBuildAction: Codable, Identifiable {
+public struct CiBuildAction: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct CiBuildAction: Codable, Identifiable {
 		case ciBuildActions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var actionType: CiActionType?
 		public var startedDate: Date?
@@ -60,17 +60,17 @@ public struct CiBuildAction: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var buildRun: BuildRun?
 		public var artifacts: Artifacts?
 		public var issues: Issues?
 		public var testResults: TestResults?
 
-		public struct BuildRun: Codable {
+		public struct BuildRun: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -114,7 +114,7 @@ public struct CiBuildAction: Codable, Identifiable {
 			}
 		}
 
-		public struct Artifacts: Codable {
+		public struct Artifacts: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -132,7 +132,7 @@ public struct CiBuildAction: Codable, Identifiable {
 			}
 		}
 
-		public struct Issues: Codable {
+		public struct Issues: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -150,7 +150,7 @@ public struct CiBuildAction: Codable, Identifiable {
 			}
 		}
 
-		public struct TestResults: Codable {
+		public struct TestResults: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct MarketplaceWebhookCreateRequest: Codable {
+public struct MarketplaceWebhookCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -14,7 +14,7 @@ public struct MarketplaceWebhookCreateRequest: Codable {
 			case marketplaceWebhooks
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var endpointURL: URL
 			public var secret: String
 

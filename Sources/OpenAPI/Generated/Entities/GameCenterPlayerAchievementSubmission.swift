@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterPlayerAchievementSubmission: Codable, Identifiable {
+public struct GameCenterPlayerAchievementSubmission: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct GameCenterPlayerAchievementSubmission: Codable, Identifiable {
 		case gameCenterPlayerAchievementSubmissions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var bundleID: String?
 		public var challengeIDs: [String]?
 		public var percentageAchieved: Int?

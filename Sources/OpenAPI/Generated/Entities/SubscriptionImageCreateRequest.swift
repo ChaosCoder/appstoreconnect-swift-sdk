@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct SubscriptionImageCreateRequest: Codable {
+public struct SubscriptionImageCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct SubscriptionImageCreateRequest: Codable {
 			case subscriptionImages
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var fileSize: Int
 			public var fileName: String
 
@@ -37,13 +37,13 @@ public struct SubscriptionImageCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var subscription: Subscription
 
-			public struct Subscription: Codable {
+			public struct Subscription: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

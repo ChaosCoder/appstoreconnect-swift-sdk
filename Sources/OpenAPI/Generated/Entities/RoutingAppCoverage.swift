@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct RoutingAppCoverage: Codable, Identifiable {
+public struct RoutingAppCoverage: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct RoutingAppCoverage: Codable, Identifiable {
 		case routingAppCoverages
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var sourceFileChecksum: String?
@@ -48,13 +48,13 @@ public struct RoutingAppCoverage: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersion: AppStoreVersion?
 
-		public struct AppStoreVersion: Codable {
+		public struct AppStoreVersion: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

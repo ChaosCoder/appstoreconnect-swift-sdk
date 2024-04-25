@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct User: Codable, Identifiable {
+public struct User: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct User: Codable, Identifiable {
 		case users
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var username: String?
 		public var firstName: String?
 		public var lastName: String?
@@ -52,15 +52,15 @@ public struct User: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var visibleApps: VisibleApps?
 
-		public struct VisibleApps: Codable {
+		public struct VisibleApps: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

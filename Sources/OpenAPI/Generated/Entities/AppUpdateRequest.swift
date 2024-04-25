@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppUpdateRequest: Codable {
+public struct AppUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct AppUpdateRequest: Codable {
 			case apps
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var bundleID: String?
 			public var primaryLocale: String?
 			public var subscriptionStatusURL: URL?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterAchievementImageResponse: Codable {
+public struct GameCenterAchievementImageResponse: Codable, Equatable {
 	/// GameCenterAchievementImage
 	public var data: GameCenterAchievementImage
 	public var included: [GameCenterAchievementLocalization]?

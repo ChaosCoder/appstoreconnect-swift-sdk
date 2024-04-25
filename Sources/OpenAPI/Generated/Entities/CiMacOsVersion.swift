@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiMacOsVersion: Codable, Identifiable {
+public struct CiMacOsVersion: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct CiMacOsVersion: Codable, Identifiable {
 		case ciMacOsVersions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var version: String?
 		public var name: String?
 
@@ -36,15 +36,15 @@ public struct CiMacOsVersion: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var xcodeVersions: XcodeVersions?
 
-		public struct XcodeVersions: Codable {
+		public struct XcodeVersions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

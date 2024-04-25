@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppClipAdvancedExperienceLocalizationInlineCreate: Codable, Identifiable {
+public struct AppClipAdvancedExperienceLocalizationInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 	public var attributes: Attributes?
@@ -12,7 +12,7 @@ public struct AppClipAdvancedExperienceLocalizationInlineCreate: Codable, Identi
 		case appClipAdvancedExperienceLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var language: AppClipAdvancedExperienceLanguage?
 		public var title: String?
 		public var subtitle: String?

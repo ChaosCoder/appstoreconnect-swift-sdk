@@ -4,10 +4,10 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct GameCenterLeaderboardSetGroupLeaderboardSetLinkageRequest: Codable {
+public struct GameCenterLeaderboardSetGroupLeaderboardSetLinkageRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionGracePeriod: Codable, Identifiable {
+public struct SubscriptionGracePeriod: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct SubscriptionGracePeriod: Codable, Identifiable {
 		case subscriptionGracePeriods
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isOptIn: Bool?
 		public var isSandboxOptIn: Bool?
 		public var duration: SubscriptionGracePeriodDuration?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct App: Codable, Identifiable {
+public struct App: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct App: Codable, Identifiable {
 		case apps
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var bundleID: String?
 		public var sku: String?
@@ -77,7 +77,7 @@ public struct App: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appEncryptionDeclarations: AppEncryptionDeclarations?
 		public var ciProduct: CiProduct?
 		public var betaTesters: BetaTesters?
@@ -112,12 +112,12 @@ public struct App: Codable, Identifiable {
 		public var analyticsReportRequests: AnalyticsReportRequests?
 		public var marketplaceSearchDetail: MarketplaceSearchDetail?
 
-		public struct AppEncryptionDeclarations: Codable {
+		public struct AppEncryptionDeclarations: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -164,11 +164,11 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct CiProduct: Codable {
+		public struct CiProduct: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -212,7 +212,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaTesters: Codable {
+		public struct BetaTesters: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -230,12 +230,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaGroups: Codable {
+		public struct BetaGroups: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -282,12 +282,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersions: Codable {
+		public struct AppStoreVersions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -334,12 +334,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct PreReleaseVersions: Codable {
+		public struct PreReleaseVersions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -386,12 +386,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaAppLocalizations: Codable {
+		public struct BetaAppLocalizations: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -438,12 +438,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct Builds: Codable {
+		public struct Builds: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -490,11 +490,11 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaLicenseAgreement: Codable {
+		public struct BetaLicenseAgreement: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -538,11 +538,11 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaAppReviewDetail: Codable {
+		public struct BetaAppReviewDetail: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -586,12 +586,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppInfos: Codable {
+		public struct AppInfos: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -638,12 +638,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppClips: Codable {
+		public struct AppClips: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -690,7 +690,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppPricePoints: Codable {
+		public struct AppPricePoints: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -708,11 +708,11 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct EndUserLicenseAgreement: Codable {
+		public struct EndUserLicenseAgreement: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -756,7 +756,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppPriceSchedule: Codable {
+		public struct AppPriceSchedule: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -774,7 +774,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppAvailabilityV2: Codable {
+		public struct AppAvailabilityV2: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -793,12 +793,12 @@ public struct App: Codable, Identifiable {
 		}
 
 		@available(*, deprecated, message: "Deprecated")
-		public struct InAppPurchases: Codable {
+		public struct InAppPurchases: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -845,12 +845,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct SubscriptionGroups: Codable {
+		public struct SubscriptionGroups: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -897,12 +897,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterEnabledVersions: Codable {
+		public struct GameCenterEnabledVersions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -949,7 +949,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct PerfPowerMetrics: Codable {
+		public struct PerfPowerMetrics: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -967,12 +967,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppCustomProductPages: Codable {
+		public struct AppCustomProductPages: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1019,12 +1019,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct InAppPurchasesV2: Codable {
+		public struct InAppPurchasesV2: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1071,12 +1071,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct PromotedPurchases: Codable {
+		public struct PromotedPurchases: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1123,12 +1123,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppEvents: Codable {
+		public struct AppEvents: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1175,12 +1175,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct ReviewSubmissions: Codable {
+		public struct ReviewSubmissions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1227,11 +1227,11 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct SubscriptionGracePeriod: Codable {
+		public struct SubscriptionGracePeriod: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1275,7 +1275,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct CustomerReviews: Codable {
+		public struct CustomerReviews: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -1293,11 +1293,11 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterDetail: Codable {
+		public struct GameCenterDetail: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1341,12 +1341,12 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersionExperimentsV2: Codable {
+		public struct AppStoreVersionExperimentsV2: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -1393,7 +1393,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AlternativeDistributionKey: Codable {
+		public struct AlternativeDistributionKey: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -1411,7 +1411,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct AnalyticsReportRequests: Codable {
+		public struct AnalyticsReportRequests: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -1429,7 +1429,7 @@ public struct App: Codable, Identifiable {
 			}
 		}
 
-		public struct MarketplaceSearchDetail: Codable {
+		public struct MarketplaceSearchDetail: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

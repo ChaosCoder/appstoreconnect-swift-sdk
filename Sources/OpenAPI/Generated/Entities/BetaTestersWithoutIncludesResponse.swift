@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaTestersWithoutIncludesResponse: Codable {
+public struct BetaTestersWithoutIncludesResponse: Codable, Equatable {
 	public var data: [BetaTester]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?

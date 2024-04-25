@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Identifiable {
+public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Identifia
 		case appStoreVersionExperimentTreatmentLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var locale: String?
 
 		public init(locale: String? = nil) {
@@ -32,15 +32,15 @@ public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Identifia
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersionExperimentTreatment: AppStoreVersionExperimentTreatment?
 		public var appScreenshotSets: AppScreenshotSets?
 		public var appPreviewSets: AppPreviewSets?
 
-		public struct AppStoreVersionExperimentTreatment: Codable {
+		public struct AppStoreVersionExperimentTreatment: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -81,12 +81,12 @@ public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Identifia
 			}
 		}
 
-		public struct AppScreenshotSets: Codable {
+		public struct AppScreenshotSets: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -133,12 +133,12 @@ public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Identifia
 			}
 		}
 
-		public struct AppPreviewSets: Codable {
+		public struct AppPreviewSets: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

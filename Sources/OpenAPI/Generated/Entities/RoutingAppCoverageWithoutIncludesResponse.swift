@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct RoutingAppCoverageWithoutIncludesResponse: Codable {
+public struct RoutingAppCoverageWithoutIncludesResponse: Codable, Equatable {
 	/// RoutingAppCoverage
 	public var data: RoutingAppCoverage
 	public var links: DocumentLinks

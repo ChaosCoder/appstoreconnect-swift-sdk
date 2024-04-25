@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiXcodeVersion: Codable, Identifiable {
+public struct CiXcodeVersion: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,18 +14,18 @@ public struct CiXcodeVersion: Codable, Identifiable {
 		case ciXcodeVersions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var version: String?
 		public var name: String?
 		public var testDestinations: [TestDestination]?
 
-		public struct TestDestination: Codable {
+		public struct TestDestination: Codable, Equatable {
 			public var deviceTypeName: String?
 			public var deviceTypeIdentifier: String?
 			public var availableRuntimes: [AvailableRuntime]?
 			public var kind: CiTestDestinationKind?
 
-			public struct AvailableRuntime: Codable {
+			public struct AvailableRuntime: Codable, Equatable {
 				public var runtimeName: String?
 				public var runtimeIdentifier: String?
 
@@ -92,15 +92,15 @@ public struct CiXcodeVersion: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var macOsVersions: MacOsVersions?
 
-		public struct MacOsVersions: Codable {
+		public struct MacOsVersions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

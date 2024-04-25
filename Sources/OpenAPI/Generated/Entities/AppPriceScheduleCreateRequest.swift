@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct AppPriceScheduleCreateRequest: Codable {
+public struct AppPriceScheduleCreateRequest: Codable, Equatable {
 	public var data: Data
 	public var included: [IncludedItem]?
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -15,15 +15,15 @@ public struct AppPriceScheduleCreateRequest: Codable {
 			case appPriceSchedules
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var app: App
 			public var baseTerritory: BaseTerritory
 			public var manualPrices: ManualPrices
 
-			public struct App: Codable {
+			public struct App: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -64,10 +64,10 @@ public struct AppPriceScheduleCreateRequest: Codable {
 				}
 			}
 
-			public struct BaseTerritory: Codable {
+			public struct BaseTerritory: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -108,10 +108,10 @@ public struct AppPriceScheduleCreateRequest: Codable {
 				}
 			}
 
-			public struct ManualPrices: Codable {
+			public struct ManualPrices: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -191,7 +191,7 @@ public struct AppPriceScheduleCreateRequest: Codable {
 		}
 	}
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case appPriceV2InlineCreate(AppPriceV2InlineCreate)
 		case territoryInlineCreate(TerritoryInlineCreate)
 

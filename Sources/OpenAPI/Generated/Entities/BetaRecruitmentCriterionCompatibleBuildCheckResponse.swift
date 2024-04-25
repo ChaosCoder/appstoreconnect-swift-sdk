@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaRecruitmentCriterionCompatibleBuildCheckResponse: Codable {
+public struct BetaRecruitmentCriterionCompatibleBuildCheckResponse: Codable, Equatable {
 	/// BetaRecruitmentCriterionCompatibleBuildCheck
 	public var data: BetaRecruitmentCriterionCompatibleBuildCheck
 	public var links: DocumentLinks

@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct BetaAppClipInvocationCreateRequest: Codable {
+public struct BetaAppClipInvocationCreateRequest: Codable, Equatable {
 	public var data: Data
 	public var included: [BetaAppClipInvocationLocalizationInlineCreate]?
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -16,7 +16,7 @@ public struct BetaAppClipInvocationCreateRequest: Codable {
 			case betaAppClipInvocations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var url: URL
 
 			public init(url: URL) {
@@ -34,14 +34,14 @@ public struct BetaAppClipInvocationCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var buildBundle: BuildBundle
 			public var betaAppClipInvocationLocalizations: BetaAppClipInvocationLocalizations
 
-			public struct BuildBundle: Codable {
+			public struct BuildBundle: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -82,10 +82,10 @@ public struct BetaAppClipInvocationCreateRequest: Codable {
 				}
 			}
 
-			public struct BetaAppClipInvocationLocalizations: Codable {
+			public struct BetaAppClipInvocationLocalizations: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

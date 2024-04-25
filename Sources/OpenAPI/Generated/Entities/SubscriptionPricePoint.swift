@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionPricePoint: Codable, Identifiable {
+public struct SubscriptionPricePoint: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionPricePoint: Codable, Identifiable {
 		case subscriptionPricePoints
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var customerPrice: String?
 		public var proceeds: String?
 		public var proceedsYear2: String?
@@ -40,14 +40,14 @@ public struct SubscriptionPricePoint: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var territory: Territory?
 		public var equalizations: Equalizations?
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -88,7 +88,7 @@ public struct SubscriptionPricePoint: Codable, Identifiable {
 			}
 		}
 
-		public struct Equalizations: Codable {
+		public struct Equalizations: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

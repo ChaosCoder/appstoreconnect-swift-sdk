@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CapabilitySetting: Codable {
+public struct CapabilitySetting: Codable, Equatable {
 	public var key: Key?
 	public var name: String?
 	public var description: String?

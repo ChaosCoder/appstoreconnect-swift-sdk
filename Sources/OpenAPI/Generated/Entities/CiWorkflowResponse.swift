@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct CiWorkflowResponse: Codable {
+public struct CiWorkflowResponse: Codable, Equatable {
 	/// CiWorkflow
 	public var data: CiWorkflow
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case ciProduct(CiProduct)
 		case scmRepository(ScmRepository)
 		case ciXcodeVersion(CiXcodeVersion)

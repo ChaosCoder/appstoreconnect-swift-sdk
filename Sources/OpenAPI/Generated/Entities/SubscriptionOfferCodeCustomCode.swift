@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionOfferCodeCustomCode: Codable, Identifiable {
+public struct SubscriptionOfferCodeCustomCode: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionOfferCodeCustomCode: Codable, Identifiable {
 		case subscriptionOfferCodeCustomCodes
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var customCode: String?
 		public var numberOfCodes: Int?
 		public var createdDate: Date?
@@ -48,13 +48,13 @@ public struct SubscriptionOfferCodeCustomCode: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var offerCode: OfferCode?
 
-		public struct OfferCode: Codable {
+		public struct OfferCode: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

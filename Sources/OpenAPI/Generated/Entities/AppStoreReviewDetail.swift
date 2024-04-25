@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppStoreReviewDetail: Codable, Identifiable {
+public struct AppStoreReviewDetail: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppStoreReviewDetail: Codable, Identifiable {
 		case appStoreReviewDetails
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var contactFirstName: String?
 		public var contactLastName: String?
 		public var contactPhone: String?
@@ -60,14 +60,14 @@ public struct AppStoreReviewDetail: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersion: AppStoreVersion?
 		public var appStoreReviewAttachments: AppStoreReviewAttachments?
 
-		public struct AppStoreVersion: Codable {
+		public struct AppStoreVersion: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -108,12 +108,12 @@ public struct AppStoreReviewDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreReviewAttachments: Codable {
+		public struct AppStoreReviewAttachments: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

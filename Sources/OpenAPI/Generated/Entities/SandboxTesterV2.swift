@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SandboxTesterV2: Codable, Identifiable {
+public struct SandboxTesterV2: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct SandboxTesterV2: Codable, Identifiable {
 		case sandboxTesters
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var firstName: String?
 		public var lastName: String?
 		public var acAccountName: String?

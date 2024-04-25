@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct EndUserLicenseAgreementWithoutIncludesResponse: Codable {
+public struct EndUserLicenseAgreementWithoutIncludesResponse: Codable, Equatable {
 	/// EndUserLicenseAgreement
 	public var data: EndUserLicenseAgreement
 	public var links: DocumentLinks

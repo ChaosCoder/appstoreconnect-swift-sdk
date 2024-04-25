@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionImageResponse: Codable {
+public struct SubscriptionImageResponse: Codable, Equatable {
 	/// SubscriptionImage
 	public var data: SubscriptionImage
 	public var included: [Subscription]?

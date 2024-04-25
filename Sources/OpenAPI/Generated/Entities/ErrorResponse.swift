@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct ErrorResponse: Codable {
+public struct ErrorResponse: Codable, Equatable {
 	public var errors: [Error]?
 
-	public struct Error: Codable, Identifiable {
+	public struct Error: Codable, Equatable, Identifiable {
 		public var id: String?
 		public var status: String
 		public var code: String
@@ -16,7 +16,7 @@ public struct ErrorResponse: Codable {
 		public var links: ErrorLinks?
 		public var meta: [String: AnyJSON]?
 
-		public enum Source: Codable {
+		public enum Source: Codable, Equatable {
 			case errorSourcePointer(ErrorSourcePointer)
 			case errorSourceParameter(ErrorSourceParameter)
 

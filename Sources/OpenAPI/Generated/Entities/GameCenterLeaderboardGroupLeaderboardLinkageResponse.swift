@@ -4,11 +4,11 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct GameCenterLeaderboardGroupLeaderboardLinkageResponse: Codable {
+public struct GameCenterLeaderboardGroupLeaderboardLinkageResponse: Codable, Equatable {
 	public var data: Data
 	public var links: DocumentLinks
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 

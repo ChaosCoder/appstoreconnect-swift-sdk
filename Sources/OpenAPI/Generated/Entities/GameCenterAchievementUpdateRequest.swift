@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterAchievementUpdateRequest: Codable {
+public struct GameCenterAchievementUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct GameCenterAchievementUpdateRequest: Codable {
 			case gameCenterAchievements
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var referenceName: String?
 			public var points: Int?
 			public var isShowBeforeEarned: Bool?

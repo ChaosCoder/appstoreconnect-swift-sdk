@@ -3,8 +3,8 @@
 
 import Foundation
 
-public struct MetricsInsight: Codable {
-	public var metricCategory: MetricCategory?
+public struct MetricsInsight: Codable, Equatable {
+	public var metricCategory: MetricCategoryIdentifier?
 	public var latestVersion: String?
 	public var metric: String?
 	public var summaryString: String?
@@ -14,7 +14,7 @@ public struct MetricsInsight: Codable {
 	public var isHighImpact: Bool?
 	public var populations: [Population]?
 
-	public struct Population: Codable {
+	public struct Population: Codable, Equatable {
 		public var deltaPercentage: Double?
 		public var percentile: String?
 		public var summaryString: String?
@@ -52,7 +52,7 @@ public struct MetricsInsight: Codable {
 		}
 	}
 
-	public init(metricCategory: MetricCategory? = nil, latestVersion: String? = nil, metric: String? = nil, summaryString: String? = nil, referenceVersions: String? = nil, maxLatestVersionValue: Double? = nil, subSystemLabel: String? = nil, isHighImpact: Bool? = nil, populations: [Population]? = nil) {
+	public init(metricCategory: MetricCategoryIdentifier? = nil, latestVersion: String? = nil, metric: String? = nil, summaryString: String? = nil, referenceVersions: String? = nil, maxLatestVersionValue: Double? = nil, subSystemLabel: String? = nil, isHighImpact: Bool? = nil, populations: [Population]? = nil) {
 		self.metricCategory = metricCategory
 		self.latestVersion = latestVersion
 		self.metric = metric
@@ -66,7 +66,7 @@ public struct MetricsInsight: Codable {
 
 	public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: StringCodingKey.self)
-		self.metricCategory = try values.decodeIfPresent(MetricCategory.self, forKey: "metricCategory")
+		self.metricCategory = try values.decodeIfPresent(MetricCategoryIdentifier.self, forKey: "metricCategory")
 		self.latestVersion = try values.decodeIfPresent(String.self, forKey: "latestVersion")
 		self.metric = try values.decodeIfPresent(String.self, forKey: "metric")
 		self.summaryString = try values.decodeIfPresent(String.self, forKey: "summaryString")

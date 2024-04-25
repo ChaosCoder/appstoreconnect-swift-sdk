@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct RelationshipLinks: Codable {
+public struct RelationshipLinks: Codable, Equatable {
 	public var this: String?
 	public var related: String?
 

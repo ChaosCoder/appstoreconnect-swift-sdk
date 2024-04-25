@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct InAppPurchaseAppStoreReviewScreenshot: Codable, Identifiable {
+public struct InAppPurchaseAppStoreReviewScreenshot: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct InAppPurchaseAppStoreReviewScreenshot: Codable, Identifiable {
 		case inAppPurchaseAppStoreReviewScreenshots
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var sourceFileChecksum: String?
@@ -60,13 +60,13 @@ public struct InAppPurchaseAppStoreReviewScreenshot: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var inAppPurchaseV2: InAppPurchaseV2?
 
-		public struct InAppPurchaseV2: Codable {
+		public struct InAppPurchaseV2: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

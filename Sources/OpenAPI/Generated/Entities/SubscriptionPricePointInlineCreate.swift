@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionPricePointInlineCreate: Codable, Identifiable {
+public struct SubscriptionPricePointInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 

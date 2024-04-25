@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppEvent: Codable, Identifiable {
+public struct AppEvent: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppEvent: Codable, Identifiable {
 		case appEvents
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var referenceName: String?
 		public var badge: Badge?
 		public var eventState: EventState?
@@ -61,7 +61,7 @@ public struct AppEvent: Codable, Identifiable {
 			case bringBackLapsedUsers = "BRING_BACK_LAPSED_USERS"
 		}
 
-		public struct TerritorySchedule: Codable {
+		public struct TerritorySchedule: Codable, Equatable {
 			public var territories: [String]?
 			public var publishStart: Date?
 			public var eventStart: Date?
@@ -91,7 +91,7 @@ public struct AppEvent: Codable, Identifiable {
 			}
 		}
 
-		public struct ArchivedTerritorySchedule: Codable {
+		public struct ArchivedTerritorySchedule: Codable, Equatable {
 			public var territories: [String]?
 			public var publishStart: Date?
 			public var eventStart: Date?
@@ -163,15 +163,15 @@ public struct AppEvent: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var localizations: Localizations?
 
-		public struct Localizations: Codable {
+		public struct Localizations: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardSetImageResponse: Codable {
+public struct GameCenterLeaderboardSetImageResponse: Codable, Equatable {
 	/// GameCenterLeaderboardSetImage
 	public var data: GameCenterLeaderboardSetImage
 	public var included: [GameCenterLeaderboardSetLocalization]?

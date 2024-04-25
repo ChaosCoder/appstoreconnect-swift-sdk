@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct SubscriptionLocalizationUpdateRequest: Codable {
+public struct SubscriptionLocalizationUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct SubscriptionLocalizationUpdateRequest: Codable {
 			case subscriptionLocalizations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String?
 			public var description: String?
 

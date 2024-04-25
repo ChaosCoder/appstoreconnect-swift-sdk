@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct PerfPowerMetric: Codable, Identifiable {
+public struct PerfPowerMetric: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct PerfPowerMetric: Codable, Identifiable {
 		case perfPowerMetrics
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var platform: Platform?
 		public var metricType: MetricType?
 		public var deviceType: String?

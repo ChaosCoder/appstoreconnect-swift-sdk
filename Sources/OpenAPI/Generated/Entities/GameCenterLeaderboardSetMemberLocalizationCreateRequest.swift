@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardSetMemberLocalizationCreateRequest: Codable {
+public struct GameCenterLeaderboardSetMemberLocalizationCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes?
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct GameCenterLeaderboardSetMemberLocalizationCreateRequest: Codable {
 			case gameCenterLeaderboardSetMemberLocalizations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String?
 			public var locale: String?
 
@@ -37,14 +37,14 @@ public struct GameCenterLeaderboardSetMemberLocalizationCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var gameCenterLeaderboardSet: GameCenterLeaderboardSet
 			public var gameCenterLeaderboard: GameCenterLeaderboard
 
-			public struct GameCenterLeaderboardSet: Codable {
+			public struct GameCenterLeaderboardSet: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -85,10 +85,10 @@ public struct GameCenterLeaderboardSetMemberLocalizationCreateRequest: Codable {
 				}
 			}
 
-			public struct GameCenterLeaderboard: Codable {
+			public struct GameCenterLeaderboard: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardSetImageUpdateRequest: Codable {
+public struct GameCenterLeaderboardSetImageUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct GameCenterLeaderboardSetImageUpdateRequest: Codable {
 			case gameCenterLeaderboardSetImages
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isUploaded: Bool?
 
 			public init(isUploaded: Bool? = nil) {

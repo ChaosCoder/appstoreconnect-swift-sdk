@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AgeRatingDeclaration: Codable, Identifiable {
+public struct AgeRatingDeclaration: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct AgeRatingDeclaration: Codable, Identifiable {
 		case ageRatingDeclarations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var alcoholTobaccoOrDrugUseOrReferences: AlcoholTobaccoOrDrugUseOrReferences?
 		public var contests: Contests?
 		/// - warning: Deprecated.

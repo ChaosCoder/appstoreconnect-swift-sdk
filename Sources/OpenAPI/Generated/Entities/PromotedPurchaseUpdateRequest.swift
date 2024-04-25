@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct PromotedPurchaseUpdateRequest: Codable {
+public struct PromotedPurchaseUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct PromotedPurchaseUpdateRequest: Codable {
 			case promotedPurchases
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isVisibleForAllUsers: Bool?
 			public var isEnabled: Bool?
 

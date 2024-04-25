@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaRecruitmentCriterionOption: Codable, Identifiable {
+public struct BetaRecruitmentCriterionOption: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,10 +13,10 @@ public struct BetaRecruitmentCriterionOption: Codable, Identifiable {
 		case betaRecruitmentCriterionOptions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var deviceFamilyOsVersions: [DeviceFamilyOsVersion]?
 
-		public struct DeviceFamilyOsVersion: Codable {
+		public struct DeviceFamilyOsVersion: Codable, Equatable {
 			public var deviceFamily: DeviceFamily?
 			public var osVersions: [String]?
 

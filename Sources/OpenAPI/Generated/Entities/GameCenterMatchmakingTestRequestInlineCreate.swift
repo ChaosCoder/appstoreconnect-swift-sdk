@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingTestRequestInlineCreate: Codable, Identifiable {
+public struct GameCenterMatchmakingTestRequestInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 	public var attributes: Attributes
@@ -13,7 +13,7 @@ public struct GameCenterMatchmakingTestRequestInlineCreate: Codable, Identifiabl
 		case gameCenterMatchmakingTestRequests
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var requestName: String
 		public var secondsInQueue: Int
 		public var locale: Locale?
@@ -109,13 +109,13 @@ public struct GameCenterMatchmakingTestRequestInlineCreate: Codable, Identifiabl
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var matchmakingPlayerProperties: MatchmakingPlayerProperties?
 
-		public struct MatchmakingPlayerProperties: Codable {
+		public struct MatchmakingPlayerProperties: Codable, Equatable {
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

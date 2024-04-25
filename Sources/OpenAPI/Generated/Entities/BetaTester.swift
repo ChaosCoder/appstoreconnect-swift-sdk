@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaTester: Codable, Identifiable {
+public struct BetaTester: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct BetaTester: Codable, Identifiable {
 		case betaTesters
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var firstName: String?
 		public var lastName: String?
 		public var email: String?
@@ -48,17 +48,17 @@ public struct BetaTester: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var apps: Apps?
 		public var betaGroups: BetaGroups?
 		public var builds: Builds?
 
-		public struct Apps: Codable {
+		public struct Apps: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -105,12 +105,12 @@ public struct BetaTester: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaGroups: Codable {
+		public struct BetaGroups: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -157,12 +157,12 @@ public struct BetaTester: Codable, Identifiable {
 			}
 		}
 
-		public struct Builds: Codable {
+		public struct Builds: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

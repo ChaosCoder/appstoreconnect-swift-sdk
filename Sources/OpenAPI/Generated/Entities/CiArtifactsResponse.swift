@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiArtifactsResponse: Codable {
+public struct CiArtifactsResponse: Codable, Equatable {
 	public var data: [CiArtifact]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?

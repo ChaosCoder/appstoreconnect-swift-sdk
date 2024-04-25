@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct AppCustomProductPageVersionResponse: Codable {
+public struct AppCustomProductPageVersionResponse: Codable, Equatable {
 	/// AppCustomProductPageVersion
 	public var data: AppCustomProductPageVersion
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case appCustomProductPage(AppCustomProductPage)
 		case appCustomProductPageLocalization(AppCustomProductPageLocalization)
 

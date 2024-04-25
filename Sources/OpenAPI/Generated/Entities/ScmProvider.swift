@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ScmProvider: Codable, Identifiable {
+public struct ScmProvider: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct ScmProvider: Codable, Identifiable {
 		case scmProviders
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var scmProviderType: ScmProviderType?
 		public var url: URL?
 
@@ -36,10 +36,10 @@ public struct ScmProvider: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var repositories: Repositories?
 
-		public struct Repositories: Codable {
+		public struct Repositories: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

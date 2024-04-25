@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaLicenseAgreement: Codable, Identifiable {
+public struct BetaLicenseAgreement: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct BetaLicenseAgreement: Codable, Identifiable {
 		case betaLicenseAgreements
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var agreementText: String?
 
 		public init(agreementText: String? = nil) {
@@ -32,14 +32,14 @@ public struct BetaLicenseAgreement: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

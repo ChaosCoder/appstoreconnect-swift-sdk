@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppClip: Codable, Identifiable {
+public struct AppClip: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppClip: Codable, Identifiable {
 		case appClips
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var bundleID: String?
 
 		public init(bundleID: String? = nil) {
@@ -32,15 +32,15 @@ public struct AppClip: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var appClipDefaultExperiences: AppClipDefaultExperiences?
 		public var appClipAdvancedExperiences: AppClipAdvancedExperiences?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -81,12 +81,12 @@ public struct AppClip: Codable, Identifiable {
 			}
 		}
 
-		public struct AppClipDefaultExperiences: Codable {
+		public struct AppClipDefaultExperiences: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -133,7 +133,7 @@ public struct AppClip: Codable, Identifiable {
 			}
 		}
 
-		public struct AppClipAdvancedExperiences: Codable {
+		public struct AppClipAdvancedExperiences: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

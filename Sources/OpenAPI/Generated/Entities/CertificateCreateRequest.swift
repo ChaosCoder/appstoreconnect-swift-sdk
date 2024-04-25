@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct CertificateCreateRequest: Codable {
+public struct CertificateCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships?
@@ -15,7 +15,7 @@ public struct CertificateCreateRequest: Codable {
 			case certificates
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var csrContent: String
 			public var certificateType: CertificateType
 
@@ -37,13 +37,13 @@ public struct CertificateCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var merchantID: MerchantID?
 
-			public struct MerchantID: Codable {
+			public struct MerchantID: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

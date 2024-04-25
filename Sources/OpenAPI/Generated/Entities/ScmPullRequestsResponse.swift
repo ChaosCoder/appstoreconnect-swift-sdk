@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ScmPullRequestsResponse: Codable {
+public struct ScmPullRequestsResponse: Codable, Equatable {
 	public var data: [ScmPullRequest]
 	public var included: [ScmRepository]?
 	public var links: PagedDocumentLinks

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaGroup: Codable, Identifiable {
+public struct BetaGroup: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct BetaGroup: Codable, Identifiable {
 		case betaGroups
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var createdDate: Date?
 		public var isInternalGroup: Bool?
@@ -76,18 +76,18 @@ public struct BetaGroup: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var builds: Builds?
 		public var betaTesters: BetaTesters?
 		public var betaRecruitmentCriteria: BetaRecruitmentCriteria?
 		public var betaRecruitmentCriterionCompatibleBuildCheck: BetaRecruitmentCriterionCompatibleBuildCheck?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -131,12 +131,12 @@ public struct BetaGroup: Codable, Identifiable {
 			}
 		}
 
-		public struct Builds: Codable {
+		public struct Builds: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -183,12 +183,12 @@ public struct BetaGroup: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaTesters: Codable {
+		public struct BetaTesters: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -235,11 +235,11 @@ public struct BetaGroup: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaRecruitmentCriteria: Codable {
+		public struct BetaRecruitmentCriteria: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -283,7 +283,7 @@ public struct BetaGroup: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaRecruitmentCriterionCompatibleBuildCheck: Codable {
+		public struct BetaRecruitmentCriterionCompatibleBuildCheck: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

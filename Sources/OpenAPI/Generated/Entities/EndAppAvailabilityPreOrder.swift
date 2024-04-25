@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct EndAppAvailabilityPreOrder: Codable, Identifiable {
+public struct EndAppAvailabilityPreOrder: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var links: ResourceLinks?

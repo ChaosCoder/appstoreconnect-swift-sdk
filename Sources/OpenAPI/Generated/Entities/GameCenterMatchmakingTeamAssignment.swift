@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingTeamAssignment: Codable {
+public struct GameCenterMatchmakingTeamAssignment: Codable, Equatable {
 	public var playerID: String?
 	public var team: String?
 

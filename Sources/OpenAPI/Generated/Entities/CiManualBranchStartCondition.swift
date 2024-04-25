@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiManualBranchStartCondition: Codable {
+public struct CiManualBranchStartCondition: Codable, Equatable {
 	public var source: CiBranchPatterns?
 
 	public init(source: CiBranchPatterns? = nil) {

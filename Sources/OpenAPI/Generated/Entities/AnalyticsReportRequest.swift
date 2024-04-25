@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AnalyticsReportRequest: Codable, Identifiable {
+public struct AnalyticsReportRequest: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AnalyticsReportRequest: Codable, Identifiable {
 		case analyticsReportRequests
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var accessType: AccessType?
 		public var isStoppedDueToInactivity: Bool?
 
@@ -41,15 +41,15 @@ public struct AnalyticsReportRequest: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var reports: Reports?
 
-		public struct Reports: Codable {
+		public struct Reports: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

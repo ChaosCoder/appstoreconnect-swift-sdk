@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppStoreVersionExperimentTreatmentCreateRequest: Codable {
+public struct AppStoreVersionExperimentTreatmentCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships?
@@ -15,7 +15,7 @@ public struct AppStoreVersionExperimentTreatmentCreateRequest: Codable {
 			case appStoreVersionExperimentTreatments
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String
 			public var appIconName: String?
 
@@ -37,14 +37,14 @@ public struct AppStoreVersionExperimentTreatmentCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var appStoreVersionExperiment: AppStoreVersionExperiment?
 			public var appStoreVersionExperimentV2: AppStoreVersionExperimentV2?
 
-			public struct AppStoreVersionExperiment: Codable {
+			public struct AppStoreVersionExperiment: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -85,10 +85,10 @@ public struct AppStoreVersionExperimentTreatmentCreateRequest: Codable {
 				}
 			}
 
-			public struct AppStoreVersionExperimentV2: Codable {
+			public struct AppStoreVersionExperimentV2: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

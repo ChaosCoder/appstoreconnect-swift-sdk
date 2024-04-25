@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppCustomProductPageVersionCreateRequest: Codable {
+public struct AppCustomProductPageVersionCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes?
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct AppCustomProductPageVersionCreateRequest: Codable {
 			case appCustomProductPageVersions
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var deepLink: URL?
 
 			public init(deepLink: URL? = nil) {
@@ -33,14 +33,14 @@ public struct AppCustomProductPageVersionCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var appCustomProductPage: AppCustomProductPage
 			public var appCustomProductPageLocalizations: AppCustomProductPageLocalizations?
 
-			public struct AppCustomProductPage: Codable {
+			public struct AppCustomProductPage: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -81,10 +81,10 @@ public struct AppCustomProductPageVersionCreateRequest: Codable {
 				}
 			}
 
-			public struct AppCustomProductPageLocalizations: Codable {
+			public struct AppCustomProductPageLocalizations: Codable, Equatable {
 				public var data: [Datum]?
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct InAppPurchaseV2: Codable, Identifiable {
+public struct InAppPurchaseV2: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 		case inAppPurchases
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var productID: String?
 		public var inAppPurchaseType: InAppPurchaseType?
@@ -56,7 +56,7 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var inAppPurchaseLocalizations: InAppPurchaseLocalizations?
 		public var pricePoints: PricePoints?
 		public var content: Content?
@@ -66,12 +66,12 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 		public var inAppPurchaseAvailability: InAppPurchaseAvailability?
 		public var images: Images?
 
-		public struct InAppPurchaseLocalizations: Codable {
+		public struct InAppPurchaseLocalizations: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -118,12 +118,12 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct PricePoints: Codable {
+		public struct PricePoints: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -170,11 +170,11 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct Content: Codable {
+		public struct Content: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -218,11 +218,11 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreReviewScreenshot: Codable {
+		public struct AppStoreReviewScreenshot: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -266,11 +266,11 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct PromotedPurchase: Codable {
+		public struct PromotedPurchase: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -314,11 +314,11 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct IapPriceSchedule: Codable {
+		public struct IapPriceSchedule: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -362,11 +362,11 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct InAppPurchaseAvailability: Codable {
+		public struct InAppPurchaseAvailability: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -410,12 +410,12 @@ public struct InAppPurchaseV2: Codable, Identifiable {
 			}
 		}
 
-		public struct Images: Codable {
+		public struct Images: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

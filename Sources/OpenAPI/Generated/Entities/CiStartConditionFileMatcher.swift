@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiStartConditionFileMatcher: Codable {
+public struct CiStartConditionFileMatcher: Codable, Equatable {
 	public var directory: String?
 	public var fileExtension: String?
 	public var fileName: String?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct Nomination: Codable, Identifiable {
+public struct Nomination: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct Nomination: Codable, Identifiable {
 		case nominations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var type: `Type`?
 		public var description: String?
@@ -104,7 +104,7 @@ public struct Nomination: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var relatedApps: RelatedApps?
 		public var createdByActor: CreatedByActor?
 		public var lastModifiedByActor: LastModifiedByActor?
@@ -112,11 +112,11 @@ public struct Nomination: Codable, Identifiable {
 		public var inAppEvents: InAppEvents?
 		public var supportedTerritories: SupportedTerritories?
 
-		public struct RelatedApps: Codable {
+		public struct RelatedApps: Codable, Equatable {
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -160,10 +160,10 @@ public struct Nomination: Codable, Identifiable {
 			}
 		}
 
-		public struct CreatedByActor: Codable {
+		public struct CreatedByActor: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -204,10 +204,10 @@ public struct Nomination: Codable, Identifiable {
 			}
 		}
 
-		public struct LastModifiedByActor: Codable {
+		public struct LastModifiedByActor: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -248,10 +248,10 @@ public struct Nomination: Codable, Identifiable {
 			}
 		}
 
-		public struct SubmittedByActor: Codable {
+		public struct SubmittedByActor: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -292,11 +292,11 @@ public struct Nomination: Codable, Identifiable {
 			}
 		}
 
-		public struct InAppEvents: Codable {
+		public struct InAppEvents: Codable, Equatable {
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -340,11 +340,11 @@ public struct Nomination: Codable, Identifiable {
 			}
 		}
 
-		public struct SupportedTerritories: Codable {
+		public struct SupportedTerritories: Codable, Equatable {
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

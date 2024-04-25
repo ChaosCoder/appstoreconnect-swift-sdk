@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterDetail: Codable, Identifiable {
+public struct GameCenterDetail: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterDetail: Codable, Identifiable {
 		case gameCenterDetails
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isArcadeEnabled: Bool?
 		public var isChallengeEnabled: Bool?
 
@@ -36,7 +36,7 @@ public struct GameCenterDetail: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var gameCenterAppVersions: GameCenterAppVersions?
 		public var gameCenterGroup: GameCenterGroup?
@@ -49,10 +49,10 @@ public struct GameCenterDetail: Codable, Identifiable {
 		public var leaderboardReleases: LeaderboardReleases?
 		public var leaderboardSetReleases: LeaderboardSetReleases?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -93,12 +93,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterAppVersions: Codable {
+		public struct GameCenterAppVersions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -145,11 +145,11 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterGroup: Codable {
+		public struct GameCenterGroup: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -193,12 +193,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterLeaderboards: Codable {
+		public struct GameCenterLeaderboards: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -245,12 +245,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterLeaderboardSets: Codable {
+		public struct GameCenterLeaderboardSets: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -297,12 +297,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterAchievements: Codable {
+		public struct GameCenterAchievements: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -349,10 +349,10 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct DefaultLeaderboard: Codable {
+		public struct DefaultLeaderboard: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -393,10 +393,10 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct DefaultGroupLeaderboard: Codable {
+		public struct DefaultGroupLeaderboard: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -437,12 +437,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct AchievementReleases: Codable {
+		public struct AchievementReleases: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -489,12 +489,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct LeaderboardReleases: Codable {
+		public struct LeaderboardReleases: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -541,12 +541,12 @@ public struct GameCenterDetail: Codable, Identifiable {
 			}
 		}
 
-		public struct LeaderboardSetReleases: Codable {
+		public struct LeaderboardSetReleases: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

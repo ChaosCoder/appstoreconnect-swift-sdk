@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionAvailabilityResponse: Codable {
+public struct SubscriptionAvailabilityResponse: Codable, Equatable {
 	/// SubscriptionAvailability
 	public var data: SubscriptionAvailability
 	public var included: [Territory]?

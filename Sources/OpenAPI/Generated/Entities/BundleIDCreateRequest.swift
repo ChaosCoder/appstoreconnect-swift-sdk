@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct BundleIDCreateRequest: Codable {
+public struct BundleIDCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -14,7 +14,7 @@ public struct BundleIDCreateRequest: Codable {
 			case bundleIDs = "bundleIds"
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String
 			public var platform: BundleIDPlatform
 			public var identifier: String

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct TerritoryAvailabilityInlineCreate: Codable, Identifiable {
+public struct TerritoryAvailabilityInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 

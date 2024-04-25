@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct InAppPurchasePriceSchedule: Codable, Identifiable {
+public struct InAppPurchasePriceSchedule: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var relationships: Relationships?
@@ -13,16 +13,16 @@ public struct InAppPurchasePriceSchedule: Codable, Identifiable {
 		case inAppPurchasePriceSchedules
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var baseTerritory: BaseTerritory?
 		public var manualPrices: ManualPrices?
 		public var automaticPrices: AutomaticPrices?
 
-		public struct BaseTerritory: Codable {
+		public struct BaseTerritory: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -66,12 +66,12 @@ public struct InAppPurchasePriceSchedule: Codable, Identifiable {
 			}
 		}
 
-		public struct ManualPrices: Codable {
+		public struct ManualPrices: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -118,12 +118,12 @@ public struct InAppPurchasePriceSchedule: Codable, Identifiable {
 			}
 		}
 
-		public struct AutomaticPrices: Codable {
+		public struct AutomaticPrices: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaRecruitmentCriterionCompatibleBuildCheck: Codable, Identifiable {
+public struct BetaRecruitmentCriterionCompatibleBuildCheck: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct BetaRecruitmentCriterionCompatibleBuildCheck: Codable, Identifiabl
 		case betaRecruitmentCriterionCompatibleBuildChecks
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var hasCompatibleBuild: Bool?
 
 		public init(hasCompatibleBuild: Bool? = nil) {

@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppStoreVersionLocalizationUpdateRequest: Codable {
+public struct AppStoreVersionLocalizationUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct AppStoreVersionLocalizationUpdateRequest: Codable {
 			case appStoreVersionLocalizations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var description: String?
 			public var keywords: String?
 			public var marketingURL: URL?

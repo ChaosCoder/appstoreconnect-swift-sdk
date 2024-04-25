@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AnalyticsReportSegmentResponse: Codable {
+public struct AnalyticsReportSegmentResponse: Codable, Equatable {
 	/// AnalyticsReportSegment
 	public var data: AnalyticsReportSegment
 	public var links: DocumentLinks

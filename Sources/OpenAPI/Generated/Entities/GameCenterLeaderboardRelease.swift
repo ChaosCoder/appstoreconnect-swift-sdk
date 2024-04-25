@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardRelease: Codable, Identifiable {
+public struct GameCenterLeaderboardRelease: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterLeaderboardRelease: Codable, Identifiable {
 		case gameCenterLeaderboardReleases
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isLive: Bool?
 
 		public init(isLive: Bool? = nil) {
@@ -32,14 +32,14 @@ public struct GameCenterLeaderboardRelease: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var gameCenterDetail: GameCenterDetail?
 		public var gameCenterLeaderboard: GameCenterLeaderboard?
 
-		public struct GameCenterDetail: Codable {
+		public struct GameCenterDetail: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -80,10 +80,10 @@ public struct GameCenterLeaderboardRelease: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterLeaderboard: Codable {
+		public struct GameCenterLeaderboard: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

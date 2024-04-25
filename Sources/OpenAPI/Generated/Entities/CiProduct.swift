@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiProduct: Codable, Identifiable {
+public struct CiProduct: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct CiProduct: Codable, Identifiable {
 		case ciProducts
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var createdDate: Date?
 		public var productType: ProductType?
@@ -45,7 +45,7 @@ public struct CiProduct: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var bundleID: BundleID?
 		public var workflows: Workflows?
@@ -53,11 +53,11 @@ public struct CiProduct: Codable, Identifiable {
 		public var additionalRepositories: AdditionalRepositories?
 		public var buildRuns: BuildRuns?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -101,10 +101,10 @@ public struct CiProduct: Codable, Identifiable {
 			}
 		}
 
-		public struct BundleID: Codable {
+		public struct BundleID: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -145,7 +145,7 @@ public struct CiProduct: Codable, Identifiable {
 			}
 		}
 
-		public struct Workflows: Codable {
+		public struct Workflows: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -163,12 +163,12 @@ public struct CiProduct: Codable, Identifiable {
 			}
 		}
 
-		public struct PrimaryRepositories: Codable {
+		public struct PrimaryRepositories: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -215,7 +215,7 @@ public struct CiProduct: Codable, Identifiable {
 			}
 		}
 
-		public struct AdditionalRepositories: Codable {
+		public struct AdditionalRepositories: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {
@@ -233,7 +233,7 @@ public struct CiProduct: Codable, Identifiable {
 			}
 		}
 
-		public struct BuildRuns: Codable {
+		public struct BuildRuns: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

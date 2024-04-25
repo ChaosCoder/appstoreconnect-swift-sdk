@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppPriceSchedule: Codable, Identifiable {
+public struct AppPriceSchedule: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var relationships: Relationships?
@@ -13,16 +13,16 @@ public struct AppPriceSchedule: Codable, Identifiable {
 		case appPriceSchedules
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var baseTerritory: BaseTerritory?
 		public var manualPrices: ManualPrices?
 		public var automaticPrices: AutomaticPrices?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -63,11 +63,11 @@ public struct AppPriceSchedule: Codable, Identifiable {
 			}
 		}
 
-		public struct BaseTerritory: Codable {
+		public struct BaseTerritory: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -111,12 +111,12 @@ public struct AppPriceSchedule: Codable, Identifiable {
 			}
 		}
 
-		public struct ManualPrices: Codable {
+		public struct ManualPrices: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -163,12 +163,12 @@ public struct AppPriceSchedule: Codable, Identifiable {
 			}
 		}
 
-		public struct AutomaticPrices: Codable {
+		public struct AutomaticPrices: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CustomerReview: Codable, Identifiable {
+public struct CustomerReview: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct CustomerReview: Codable, Identifiable {
 		case customerReviews
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var rating: Int?
 		public var title: String?
 		public var body: String?
@@ -52,14 +52,14 @@ public struct CustomerReview: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var response: Response?
 
-		public struct Response: Codable {
+		public struct Response: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

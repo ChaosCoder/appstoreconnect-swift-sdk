@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppPreviewSet: Codable, Identifiable {
+public struct AppPreviewSet: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppPreviewSet: Codable, Identifiable {
 		case appPreviewSets
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var previewType: PreviewType?
 
 		public init(previewType: PreviewType? = nil) {
@@ -32,16 +32,16 @@ public struct AppPreviewSet: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersionLocalization: AppStoreVersionLocalization?
 		public var appCustomProductPageLocalization: AppCustomProductPageLocalization?
 		public var appStoreVersionExperimentTreatmentLocalization: AppStoreVersionExperimentTreatmentLocalization?
 		public var appPreviews: AppPreviews?
 
-		public struct AppStoreVersionLocalization: Codable {
+		public struct AppStoreVersionLocalization: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -82,10 +82,10 @@ public struct AppPreviewSet: Codable, Identifiable {
 			}
 		}
 
-		public struct AppCustomProductPageLocalization: Codable {
+		public struct AppCustomProductPageLocalization: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -126,10 +126,10 @@ public struct AppPreviewSet: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersionExperimentTreatmentLocalization: Codable {
+		public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -170,12 +170,12 @@ public struct AppPreviewSet: Codable, Identifiable {
 			}
 		}
 
-		public struct AppPreviews: Codable {
+		public struct AppPreviews: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

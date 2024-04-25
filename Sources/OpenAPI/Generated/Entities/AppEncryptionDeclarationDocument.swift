@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppEncryptionDeclarationDocument: Codable, Identifiable {
+public struct AppEncryptionDeclarationDocument: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct AppEncryptionDeclarationDocument: Codable, Identifiable {
 		case appEncryptionDeclarationDocuments
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var assetToken: String?

@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct InAppPurchase: Codable, Identifiable {
+public struct InAppPurchase: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct InAppPurchase: Codable, Identifiable {
 		case inAppPurchases
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var referenceName: String?
 		public var productID: String?
 		public var inAppPurchaseType: InAppPurchaseType?
@@ -75,14 +75,14 @@ public struct InAppPurchase: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var apps: Apps?
 
-		public struct Apps: Codable {
+		public struct Apps: Codable, Equatable {
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ScmPullRequest: Codable, Identifiable {
+public struct ScmPullRequest: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct ScmPullRequest: Codable, Identifiable {
 		case scmPullRequests
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var title: String?
 		public var number: Int?
 		public var webURL: URL?
@@ -72,13 +72,13 @@ public struct ScmPullRequest: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var repository: Repository?
 
-		public struct Repository: Codable {
+		public struct Repository: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

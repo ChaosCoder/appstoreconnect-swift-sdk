@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaAppClipInvocation: Codable, Identifiable {
+public struct BetaAppClipInvocation: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct BetaAppClipInvocation: Codable, Identifiable {
 		case betaAppClipInvocations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var url: URL?
 
 		public init(url: URL? = nil) {
@@ -32,14 +32,14 @@ public struct BetaAppClipInvocation: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var betaAppClipInvocationLocalizations: BetaAppClipInvocationLocalizations?
 
-		public struct BetaAppClipInvocationLocalizations: Codable {
+		public struct BetaAppClipInvocationLocalizations: Codable, Equatable {
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

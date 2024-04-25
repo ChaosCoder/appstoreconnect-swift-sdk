@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct InAppPurchaseLocalization: Codable, Identifiable {
+public struct InAppPurchaseLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct InAppPurchaseLocalization: Codable, Identifiable {
 		case inAppPurchaseLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var locale: String?
 		public var description: String?
@@ -51,13 +51,13 @@ public struct InAppPurchaseLocalization: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var inAppPurchaseV2: InAppPurchaseV2?
 
-		public struct InAppPurchaseV2: Codable {
+		public struct InAppPurchaseV2: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

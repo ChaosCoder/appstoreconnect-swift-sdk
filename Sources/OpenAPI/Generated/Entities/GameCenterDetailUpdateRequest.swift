@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterDetailUpdateRequest: Codable {
+public struct GameCenterDetailUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -16,7 +16,7 @@ public struct GameCenterDetailUpdateRequest: Codable {
 			case gameCenterDetails
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isChallengeEnabled: Bool?
 
 			public init(isChallengeEnabled: Bool? = nil) {
@@ -34,15 +34,15 @@ public struct GameCenterDetailUpdateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var gameCenterGroup: GameCenterGroup?
 			public var defaultLeaderboard: DefaultLeaderboard?
 			public var defaultGroupLeaderboard: DefaultGroupLeaderboard?
 
-			public struct GameCenterGroup: Codable {
+			public struct GameCenterGroup: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -83,10 +83,10 @@ public struct GameCenterDetailUpdateRequest: Codable {
 				}
 			}
 
-			public struct DefaultLeaderboard: Codable {
+			public struct DefaultLeaderboard: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -127,10 +127,10 @@ public struct GameCenterDetailUpdateRequest: Codable {
 				}
 			}
 
-			public struct DefaultGroupLeaderboard: Codable {
+			public struct DefaultGroupLeaderboard: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

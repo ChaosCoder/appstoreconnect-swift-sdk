@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct DiagnosticSignature: Codable, Identifiable {
+public struct DiagnosticSignature: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct DiagnosticSignature: Codable, Identifiable {
 		case diagnosticSignatures
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var diagnosticType: DiagnosticType?
 		public var signature: String?
 		public var weight: Double?
@@ -50,10 +50,10 @@ public struct DiagnosticSignature: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var logs: Logs?
 
-		public struct Logs: Codable {
+		public struct Logs: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppEventCreateRequest: Codable {
+public struct AppEventCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct AppEventCreateRequest: Codable {
 			case appEvents
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var referenceName: String
 			public var badge: Badge?
 			public var deepLink: URL?
@@ -47,7 +47,7 @@ public struct AppEventCreateRequest: Codable {
 				case bringBackLapsedUsers = "BRING_BACK_LAPSED_USERS"
 			}
 
-			public struct TerritorySchedule: Codable {
+			public struct TerritorySchedule: Codable, Equatable {
 				public var territories: [String]?
 				public var publishStart: Date?
 				public var eventStart: Date?
@@ -113,13 +113,13 @@ public struct AppEventCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var app: App
 
-			public struct App: Codable {
+			public struct App: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

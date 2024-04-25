@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct PromotedPurchase: Codable, Identifiable {
+public struct PromotedPurchase: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct PromotedPurchase: Codable, Identifiable {
 		case promotedPurchases
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isVisibleForAllUsers: Bool?
 		public var isEnabled: Bool?
 		public var state: State?
@@ -47,14 +47,14 @@ public struct PromotedPurchase: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var inAppPurchaseV2: InAppPurchaseV2?
 		public var subscription: Subscription?
 
-		public struct InAppPurchaseV2: Codable {
+		public struct InAppPurchaseV2: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -95,10 +95,10 @@ public struct PromotedPurchase: Codable, Identifiable {
 			}
 		}
 
-		public struct Subscription: Codable {
+		public struct Subscription: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

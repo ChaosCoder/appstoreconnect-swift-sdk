@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardImageCreateRequest: Codable {
+public struct GameCenterLeaderboardImageCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct GameCenterLeaderboardImageCreateRequest: Codable {
 			case gameCenterLeaderboardImages
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var fileSize: Int
 			public var fileName: String
 
@@ -37,13 +37,13 @@ public struct GameCenterLeaderboardImageCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var gameCenterLeaderboardLocalization: GameCenterLeaderboardLocalization
 
-			public struct GameCenterLeaderboardLocalization: Codable {
+			public struct GameCenterLeaderboardLocalization: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

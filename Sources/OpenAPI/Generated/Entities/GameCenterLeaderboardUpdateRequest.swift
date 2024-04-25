@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardUpdateRequest: Codable {
+public struct GameCenterLeaderboardUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct GameCenterLeaderboardUpdateRequest: Codable {
 			case gameCenterLeaderboards
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var defaultFormatter: GameCenterLeaderboardFormatter?
 			public var referenceName: String?
 			public var submissionType: SubmissionType?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiWorkflow: Codable, Identifiable {
+public struct CiWorkflow: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct CiWorkflow: Codable, Identifiable {
 		case ciWorkflows
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var description: String?
 		public var branchStartCondition: CiBranchStartCondition?
@@ -88,17 +88,17 @@ public struct CiWorkflow: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var product: Product?
 		public var repository: Repository?
 		public var xcodeVersion: XcodeVersion?
 		public var macOsVersion: MacOsVersion?
 		public var buildRuns: BuildRuns?
 
-		public struct Product: Codable {
+		public struct Product: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -139,11 +139,11 @@ public struct CiWorkflow: Codable, Identifiable {
 			}
 		}
 
-		public struct Repository: Codable {
+		public struct Repository: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -187,10 +187,10 @@ public struct CiWorkflow: Codable, Identifiable {
 			}
 		}
 
-		public struct XcodeVersion: Codable {
+		public struct XcodeVersion: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -231,10 +231,10 @@ public struct CiWorkflow: Codable, Identifiable {
 			}
 		}
 
-		public struct MacOsVersion: Codable {
+		public struct MacOsVersion: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -275,7 +275,7 @@ public struct CiWorkflow: Codable, Identifiable {
 			}
 		}
 
-		public struct BuildRuns: Codable {
+		public struct BuildRuns: Codable, Equatable {
 			public var links: RelationshipLinks?
 
 			public init(links: RelationshipLinks? = nil) {

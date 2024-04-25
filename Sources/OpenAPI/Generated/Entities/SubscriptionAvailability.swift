@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionAvailability: Codable, Identifiable {
+public struct SubscriptionAvailability: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionAvailability: Codable, Identifiable {
 		case subscriptionAvailabilities
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isAvailableInNewTerritories: Bool?
 
 		public init(isAvailableInNewTerritories: Bool? = nil) {
@@ -32,15 +32,15 @@ public struct SubscriptionAvailability: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var availableTerritories: AvailableTerritories?
 
-		public struct AvailableTerritories: Codable {
+		public struct AvailableTerritories: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

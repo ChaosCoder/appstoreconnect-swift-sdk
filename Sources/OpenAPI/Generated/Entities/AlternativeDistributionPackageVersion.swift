@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AlternativeDistributionPackageVersion: Codable, Identifiable {
+public struct AlternativeDistributionPackageVersion: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AlternativeDistributionPackageVersion: Codable, Identifiable {
 		case alternativeDistributionPackageVersions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var url: URL?
 		public var urlExpirationDate: Date?
 		public var version: String?
@@ -53,17 +53,17 @@ public struct AlternativeDistributionPackageVersion: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var variants: Variants?
 		public var deltas: Deltas?
 		public var alternativeDistributionPackage: AlternativeDistributionPackage?
 
-		public struct Variants: Codable {
+		public struct Variants: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -110,12 +110,12 @@ public struct AlternativeDistributionPackageVersion: Codable, Identifiable {
 			}
 		}
 
-		public struct Deltas: Codable {
+		public struct Deltas: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -162,10 +162,10 @@ public struct AlternativeDistributionPackageVersion: Codable, Identifiable {
 			}
 		}
 
-		public struct AlternativeDistributionPackage: Codable {
+		public struct AlternativeDistributionPackage: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct GameCenterAppVersionResponse: Codable {
+public struct GameCenterAppVersionResponse: Codable, Equatable {
 	/// GameCenterAppVersion
 	public var data: GameCenterAppVersion
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case gameCenterAppVersion(GameCenterAppVersion)
 		case appStoreVersion(AppStoreVersion)
 

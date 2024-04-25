@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct MerchantID: Codable, Identifiable {
+public struct MerchantID: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct MerchantID: Codable, Identifiable {
 		case merchantIDs = "merchantIds"
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var identifier: String?
 
@@ -36,15 +36,15 @@ public struct MerchantID: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var certificates: Certificates?
 
-		public struct Certificates: Codable {
+		public struct Certificates: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct Device: Codable, Identifiable {
+public struct Device: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct Device: Codable, Identifiable {
 		case devices
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var platform: BundleIDPlatform?
 		public var udid: String?

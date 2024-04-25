@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppMediaPreviewFrameImageState: Codable {
+public struct AppMediaPreviewFrameImageState: Codable, Equatable {
 	public var errors: [AppMediaStateError]?
 	public var warnings: [AppMediaStateError]?
 	public var state: State?

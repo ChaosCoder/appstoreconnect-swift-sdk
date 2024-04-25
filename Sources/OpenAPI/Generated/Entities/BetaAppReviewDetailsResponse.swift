@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaAppReviewDetailsResponse: Codable {
+public struct BetaAppReviewDetailsResponse: Codable, Equatable {
 	public var data: [BetaAppReviewDetail]
 	public var included: [App]?
 	public var links: PagedDocumentLinks

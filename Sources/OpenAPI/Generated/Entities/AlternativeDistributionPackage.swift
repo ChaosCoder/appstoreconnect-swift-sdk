@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AlternativeDistributionPackage: Codable, Identifiable {
+public struct AlternativeDistributionPackage: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var relationships: Relationships?
@@ -13,15 +13,15 @@ public struct AlternativeDistributionPackage: Codable, Identifiable {
 		case alternativeDistributionPackages
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var versions: Versions?
 
-		public struct Versions: Codable {
+		public struct Versions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionGroup: Codable, Identifiable {
+public struct SubscriptionGroup: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionGroup: Codable, Identifiable {
 		case subscriptionGroups
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var referenceName: String?
 
 		public init(referenceName: String? = nil) {
@@ -32,16 +32,16 @@ public struct SubscriptionGroup: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var subscriptions: Subscriptions?
 		public var subscriptionGroupLocalizations: SubscriptionGroupLocalizations?
 
-		public struct Subscriptions: Codable {
+		public struct Subscriptions: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -88,12 +88,12 @@ public struct SubscriptionGroup: Codable, Identifiable {
 			}
 		}
 
-		public struct SubscriptionGroupLocalizations: Codable {
+		public struct SubscriptionGroupLocalizations: Codable, Equatable {
 			public var links: RelationshipLinks?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

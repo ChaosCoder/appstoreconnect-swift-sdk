@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppWithoutIncludesResponse: Codable {
+public struct AppWithoutIncludesResponse: Codable, Equatable {
 	/// App
 	public var data: App
 	public var links: DocumentLinks

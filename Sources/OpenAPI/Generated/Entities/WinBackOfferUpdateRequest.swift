@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct WinBackOfferUpdateRequest: Codable {
+public struct WinBackOfferUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct WinBackOfferUpdateRequest: Codable {
 			case winBackOffers
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var customerEligibilityPaidSubscriptionDurationInMonths: Int?
 			public var customerEligibilityTimeSinceLastSubscribedInMonths: IntegerRange?
 			public var customerEligibilityWaitBetweenOffersInMonths: Int?
