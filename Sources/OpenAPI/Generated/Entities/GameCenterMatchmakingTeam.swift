@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingTeam: Codable, Identifiable {
+public struct GameCenterMatchmakingTeam: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct GameCenterMatchmakingTeam: Codable, Identifiable {
 		case gameCenterMatchmakingTeams
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var referenceName: String?
 		public var minPlayers: Int?
 		public var maxPlayers: Int?

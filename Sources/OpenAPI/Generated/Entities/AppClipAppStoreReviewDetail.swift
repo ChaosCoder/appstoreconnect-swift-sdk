@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppClipAppStoreReviewDetail: Codable, Identifiable {
+public struct AppClipAppStoreReviewDetail: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppClipAppStoreReviewDetail: Codable, Identifiable {
 		case appClipAppStoreReviewDetails
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var invocationURLs: [URL]?
 
 		public init(invocationURLs: [URL]? = nil) {
@@ -32,14 +32,14 @@ public struct AppClipAppStoreReviewDetail: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appClipDefaultExperience: AppClipDefaultExperience?
 
-		public struct AppClipDefaultExperience: Codable {
+		public struct AppClipDefaultExperience: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -61,7 +61,7 @@ public struct AppClipAppStoreReviewDetail: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

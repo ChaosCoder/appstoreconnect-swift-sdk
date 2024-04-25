@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct FileLocation: Codable {
+public struct FileLocation: Codable, Equatable {
 	public var path: String?
 	public var lineNumber: Int?
 

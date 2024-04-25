@@ -4,10 +4,10 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct MarketplaceDomainCreateRequest: Codable {
+public struct MarketplaceDomainCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -15,7 +15,7 @@ public struct MarketplaceDomainCreateRequest: Codable {
 			case marketplaceDomains
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var domain: String
 			public var referenceName: String
 

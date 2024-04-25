@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingRuleUpdateRequest: Codable {
+public struct GameCenterMatchmakingRuleUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct GameCenterMatchmakingRuleUpdateRequest: Codable {
 			case gameCenterMatchmakingRules
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var description: String?
 			public var expression: String?
 			public var weight: Double?

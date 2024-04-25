@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct MarketplaceSearchDetailResponse: Codable {
+public struct MarketplaceSearchDetailResponse: Codable, Equatable {
 	/// MarketplaceSearchDetail
 	public var data: MarketplaceSearchDetail
 	public var links: DocumentLinks

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaTesterInvitation: Codable, Identifiable {
+public struct BetaTesterInvitation: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var links: ResourceLinks?

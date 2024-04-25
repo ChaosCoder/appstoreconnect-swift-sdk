@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppStoreVersionPromotion: Codable, Identifiable {
+public struct AppStoreVersionPromotion: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var links: ResourceLinks?

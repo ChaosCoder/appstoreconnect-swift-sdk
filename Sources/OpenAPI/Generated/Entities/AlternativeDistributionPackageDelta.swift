@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AlternativeDistributionPackageDelta: Codable, Identifiable {
+public struct AlternativeDistributionPackageDelta: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct AlternativeDistributionPackageDelta: Codable, Identifiable {
 		case alternativeDistributionPackageDeltas
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var url: URL?
 		public var urlExpirationDate: Date?
 		public var alternativeDistributionKeyBlob: String?

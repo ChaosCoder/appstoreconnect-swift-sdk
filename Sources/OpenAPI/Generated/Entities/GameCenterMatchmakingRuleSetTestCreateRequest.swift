@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingRuleSetTestCreateRequest: Codable {
+public struct GameCenterMatchmakingRuleSetTestCreateRequest: Codable, Equatable {
 	public var data: Data
 	public var included: [IncludedItem]?
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -15,14 +15,14 @@ public struct GameCenterMatchmakingRuleSetTestCreateRequest: Codable {
 			case gameCenterMatchmakingRuleSetTests
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var matchmakingRuleSet: MatchmakingRuleSet
 			public var matchmakingRequests: MatchmakingRequests
 
-			public struct MatchmakingRuleSet: Codable {
+			public struct MatchmakingRuleSet: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -63,10 +63,10 @@ public struct GameCenterMatchmakingRuleSetTestCreateRequest: Codable {
 				}
 			}
 
-			public struct MatchmakingRequests: Codable {
+			public struct MatchmakingRequests: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -143,7 +143,7 @@ public struct GameCenterMatchmakingRuleSetTestCreateRequest: Codable {
 		}
 	}
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case gameCenterMatchmakingTestPlayerPropertyInlineCreate(GameCenterMatchmakingTestPlayerPropertyInlineCreate)
 		case gameCenterMatchmakingTestRequestInlineCreate(GameCenterMatchmakingTestRequestInlineCreate)
 

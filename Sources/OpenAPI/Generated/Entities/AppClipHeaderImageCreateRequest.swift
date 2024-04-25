@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppClipHeaderImageCreateRequest: Codable {
+public struct AppClipHeaderImageCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct AppClipHeaderImageCreateRequest: Codable {
 			case appClipHeaderImages
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var fileSize: Int
 			public var fileName: String
 
@@ -37,13 +37,13 @@ public struct AppClipHeaderImageCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var appClipDefaultExperienceLocalization: AppClipDefaultExperienceLocalization
 
-			public struct AppClipDefaultExperienceLocalization: Codable {
+			public struct AppClipDefaultExperienceLocalization: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

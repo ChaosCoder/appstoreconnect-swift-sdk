@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct SubscriptionGroupSubmissionCreateRequest: Codable {
+public struct SubscriptionGroupSubmissionCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -14,13 +14,13 @@ public struct SubscriptionGroupSubmissionCreateRequest: Codable {
 			case subscriptionGroupSubmissions
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var subscriptionGroup: SubscriptionGroup
 
-			public struct SubscriptionGroup: Codable {
+			public struct SubscriptionGroup: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

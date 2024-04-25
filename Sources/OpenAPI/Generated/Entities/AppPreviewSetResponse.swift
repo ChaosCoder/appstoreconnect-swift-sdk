@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct AppPreviewSetResponse: Codable {
+public struct AppPreviewSetResponse: Codable, Equatable {
 	/// AppPreviewSet
 	public var data: AppPreviewSet
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case appStoreVersionLocalization(AppStoreVersionLocalization)
 		case appCustomProductPageLocalization(AppCustomProductPageLocalization)
 		case appStoreVersionExperimentTreatmentLocalization(AppStoreVersionExperimentTreatmentLocalization)

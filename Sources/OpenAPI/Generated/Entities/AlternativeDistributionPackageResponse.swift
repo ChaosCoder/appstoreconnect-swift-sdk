@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AlternativeDistributionPackageResponse: Codable {
+public struct AlternativeDistributionPackageResponse: Codable, Equatable {
 	/// AlternativeDistributionPackage
 	public var data: AlternativeDistributionPackage
 	public var included: [AlternativeDistributionPackageVersion]?

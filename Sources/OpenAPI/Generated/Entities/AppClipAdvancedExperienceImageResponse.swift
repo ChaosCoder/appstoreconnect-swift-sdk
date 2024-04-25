@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppClipAdvancedExperienceImageResponse: Codable {
+public struct AppClipAdvancedExperienceImageResponse: Codable, Equatable {
 	/// AppClipAdvancedExperienceImage
 	public var data: AppClipAdvancedExperienceImage
 	public var links: DocumentLinks

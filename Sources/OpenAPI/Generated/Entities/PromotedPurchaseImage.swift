@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct PromotedPurchaseImage: Codable, Identifiable {
+public struct PromotedPurchaseImage: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct PromotedPurchaseImage: Codable, Identifiable {
 		case promotedPurchaseImages
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var sourceFileChecksum: String?
@@ -70,14 +70,14 @@ public struct PromotedPurchaseImage: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var promotedPurchase: PromotedPurchase?
 
-		public struct PromotedPurchase: Codable {
+		public struct PromotedPurchase: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -99,7 +99,7 @@ public struct PromotedPurchaseImage: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

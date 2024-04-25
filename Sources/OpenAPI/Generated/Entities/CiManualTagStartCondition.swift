@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiManualTagStartCondition: Codable {
+public struct CiManualTagStartCondition: Codable, Equatable {
 	public var source: CiTagPatterns?
 
 	public init(source: CiTagPatterns? = nil) {

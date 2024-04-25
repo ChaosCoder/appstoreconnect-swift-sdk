@@ -3,12 +3,12 @@
 
 import Foundation
 
-public struct GameCenterAppVersionCompatibilityVersionsLinkagesResponse: Codable {
+public struct GameCenterAppVersionCompatibilityVersionsLinkagesResponse: Codable, Equatable {
 	public var data: [Datum]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?
 
-	public struct Datum: Codable, Identifiable {
+	public struct Datum: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 

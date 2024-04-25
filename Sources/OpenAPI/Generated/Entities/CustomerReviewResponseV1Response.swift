@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CustomerReviewResponseV1Response: Codable {
+public struct CustomerReviewResponseV1Response: Codable, Equatable {
 	/// CustomerReviewResponseV1
 	public var data: CustomerReviewResponseV1
 	public var included: [CustomerReview]?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BuildBundleFileSize: Codable, Identifiable {
+public struct BuildBundleFileSize: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct BuildBundleFileSize: Codable, Identifiable {
 		case buildBundleFileSizes
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var deviceModel: String?
 		public var osVersion: String?
 		public var downloadBytes: Int?

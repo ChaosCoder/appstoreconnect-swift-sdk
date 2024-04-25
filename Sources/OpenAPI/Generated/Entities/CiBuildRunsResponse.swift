@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct CiBuildRunsResponse: Codable {
+public struct CiBuildRunsResponse: Codable, Equatable {
 	public var data: [CiBuildRun]
 	public var included: [IncludedItem]?
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case build(Build)
 		case ciWorkflow(CiWorkflow)
 		case ciProduct(CiProduct)

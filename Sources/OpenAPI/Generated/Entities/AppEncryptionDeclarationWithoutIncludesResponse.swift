@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppEncryptionDeclarationWithoutIncludesResponse: Codable {
+public struct AppEncryptionDeclarationWithoutIncludesResponse: Codable, Equatable {
 	/// Build
 	public var data: Build
 	public var links: DocumentLinks

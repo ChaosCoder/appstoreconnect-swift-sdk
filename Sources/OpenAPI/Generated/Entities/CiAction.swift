@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiAction: Codable {
+public struct CiAction: Codable, Equatable {
 	public var name: String?
 	public var actionType: CiActionType?
 	public var destination: Destination?
@@ -26,7 +26,7 @@ public struct CiAction: Codable {
 		case anyVisionosSimulator = "ANY_VISIONOS_SIMULATOR"
 	}
 
-	public struct TestConfiguration: Codable {
+	public struct TestConfiguration: Codable, Equatable {
 		public var kind: Kind?
 		public var testPlanName: String?
 		public var testDestinations: [CiTestDestination]?

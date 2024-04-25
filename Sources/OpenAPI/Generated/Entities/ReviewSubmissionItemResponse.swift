@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct ReviewSubmissionItemResponse: Codable {
+public struct ReviewSubmissionItemResponse: Codable, Equatable {
 	/// ReviewSubmissionItem
 	public var data: ReviewSubmissionItem
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case appStoreVersion(AppStoreVersion)
 		case appCustomProductPageVersion(AppCustomProductPageVersion)
 		case appStoreVersionExperiment(AppStoreVersionExperiment)

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppCustomProductPageVersion: Codable, Identifiable {
+public struct AppCustomProductPageVersion: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppCustomProductPageVersion: Codable, Identifiable {
 		case appCustomProductPageVersions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var version: String?
 		public var state: State?
 
@@ -47,15 +47,15 @@ public struct AppCustomProductPageVersion: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appCustomProductPage: AppCustomProductPage?
 		public var appCustomProductPageLocalizations: AppCustomProductPageLocalizations?
 
-		public struct AppCustomProductPage: Codable {
+		public struct AppCustomProductPage: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -77,7 +77,7 @@ public struct AppCustomProductPageVersion: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -121,12 +121,12 @@ public struct AppCustomProductPageVersion: Codable, Identifiable {
 			}
 		}
 
-		public struct AppCustomProductPageLocalizations: Codable {
+		public struct AppCustomProductPageLocalizations: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -148,7 +148,7 @@ public struct AppCustomProductPageVersion: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

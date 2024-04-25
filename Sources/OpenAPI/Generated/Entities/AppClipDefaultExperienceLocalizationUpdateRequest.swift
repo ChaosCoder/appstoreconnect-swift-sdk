@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppClipDefaultExperienceLocalizationUpdateRequest: Codable {
+public struct AppClipDefaultExperienceLocalizationUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct AppClipDefaultExperienceLocalizationUpdateRequest: Codable {
 			case appClipDefaultExperienceLocalizations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var subtitle: String?
 
 			public init(subtitle: String? = nil) {

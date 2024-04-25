@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppStoreVersionLocalization: Codable, Identifiable {
+public struct AppStoreVersionLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 		case appStoreVersionLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var description: String?
 		public var locale: String?
 		public var keywords: String?
@@ -56,16 +56,16 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersion: AppStoreVersion?
 		public var appScreenshotSets: AppScreenshotSets?
 		public var appPreviewSets: AppPreviewSets?
 
-		public struct AppStoreVersion: Codable {
+		public struct AppStoreVersion: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -87,7 +87,7 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -131,12 +131,12 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 			}
 		}
 
-		public struct AppScreenshotSets: Codable {
+		public struct AppScreenshotSets: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -158,7 +158,7 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -205,12 +205,12 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 			}
 		}
 
-		public struct AppPreviewSets: Codable {
+		public struct AppPreviewSets: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -232,7 +232,7 @@ public struct AppStoreVersionLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

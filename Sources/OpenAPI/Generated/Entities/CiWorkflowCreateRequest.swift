@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct CiWorkflowCreateRequest: Codable {
+public struct CiWorkflowCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct CiWorkflowCreateRequest: Codable {
 			case ciWorkflows
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String
 			public var description: String
 			public var branchStartCondition: CiBranchStartCondition?
@@ -85,16 +85,16 @@ public struct CiWorkflowCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var product: Product
 			public var repository: Repository
 			public var xcodeVersion: XcodeVersion
 			public var macOsVersion: MacOsVersion
 
-			public struct Product: Codable {
+			public struct Product: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -135,10 +135,10 @@ public struct CiWorkflowCreateRequest: Codable {
 				}
 			}
 
-			public struct Repository: Codable {
+			public struct Repository: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -179,10 +179,10 @@ public struct CiWorkflowCreateRequest: Codable {
 				}
 			}
 
-			public struct XcodeVersion: Codable {
+			public struct XcodeVersion: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -223,10 +223,10 @@ public struct CiWorkflowCreateRequest: Codable {
 				}
 			}
 
-			public struct MacOsVersion: Codable {
+			public struct MacOsVersion: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

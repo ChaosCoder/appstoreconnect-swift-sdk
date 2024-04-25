@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiArtifact: Codable, Identifiable {
+public struct CiArtifact: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct CiArtifact: Codable, Identifiable {
 		case ciArtifacts
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileType: FileType?
 		public var fileName: String?
 		public var fileSize: Int?

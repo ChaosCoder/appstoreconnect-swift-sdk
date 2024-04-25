@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct GameCenterEnabledVersion: Codable, Identifiable {
+public struct GameCenterEnabledVersion: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct GameCenterEnabledVersion: Codable, Identifiable {
 		case gameCenterEnabledVersions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var platform: Platform?
 		public var versionString: String?
 		public var iconAsset: ImageAsset?
@@ -41,16 +41,16 @@ public struct GameCenterEnabledVersion: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var compatibleVersions: CompatibleVersions?
 		public var app: App?
 
-		public struct CompatibleVersions: Codable {
+		public struct CompatibleVersions: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -72,7 +72,7 @@ public struct GameCenterEnabledVersion: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -119,11 +119,11 @@ public struct GameCenterEnabledVersion: Codable, Identifiable {
 			}
 		}
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -145,7 +145,7 @@ public struct GameCenterEnabledVersion: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

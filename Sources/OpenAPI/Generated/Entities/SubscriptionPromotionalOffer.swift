@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionPromotionalOffer: Codable, Identifiable {
+public struct SubscriptionPromotionalOffer: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionPromotionalOffer: Codable, Identifiable {
 		case subscriptionPromotionalOffers
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var offerCode: String?
 		public var duration: SubscriptionOfferDuration?
@@ -48,15 +48,15 @@ public struct SubscriptionPromotionalOffer: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var subscription: Subscription?
 		public var prices: Prices?
 
-		public struct Subscription: Codable {
+		public struct Subscription: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -78,7 +78,7 @@ public struct SubscriptionPromotionalOffer: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -122,12 +122,12 @@ public struct SubscriptionPromotionalOffer: Codable, Identifiable {
 			}
 		}
 
-		public struct Prices: Codable {
+		public struct Prices: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -149,7 +149,7 @@ public struct SubscriptionPromotionalOffer: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

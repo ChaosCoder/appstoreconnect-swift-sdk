@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct TerritoryAvailability: Codable, Identifiable {
+public struct TerritoryAvailability: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct TerritoryAvailability: Codable, Identifiable {
 		case territoryAvailabilities
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isAvailable: Bool?
 		public var releaseDate: String?
 		public var isPreOrderEnabled: Bool?
@@ -84,14 +84,14 @@ public struct TerritoryAvailability: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var territory: Territory?
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -113,7 +113,7 @@ public struct TerritoryAvailability: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

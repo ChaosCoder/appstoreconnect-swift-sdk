@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppInfo: Codable, Identifiable {
+public struct AppInfo: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppInfo: Codable, Identifiable {
 		case appInfos
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var appStoreState: AppStoreVersionState?
 		public var state: State?
 		public var appStoreAgeRating: AppStoreAgeRating?
@@ -80,7 +80,7 @@ public struct AppInfo: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var ageRatingDeclaration: AgeRatingDeclaration?
 		public var appInfoLocalizations: AppInfoLocalizations?
@@ -91,11 +91,11 @@ public struct AppInfo: Codable, Identifiable {
 		public var secondarySubcategoryOne: SecondarySubcategoryOne?
 		public var secondarySubcategoryTwo: SecondarySubcategoryTwo?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -117,7 +117,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -161,11 +161,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct AgeRatingDeclaration: Codable {
+		public struct AgeRatingDeclaration: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -187,7 +187,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -231,12 +231,12 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct AppInfoLocalizations: Codable {
+		public struct AppInfoLocalizations: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -258,7 +258,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -305,11 +305,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct PrimaryCategory: Codable {
+		public struct PrimaryCategory: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -331,7 +331,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -375,11 +375,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct PrimarySubcategoryOne: Codable {
+		public struct PrimarySubcategoryOne: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -401,7 +401,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -445,11 +445,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct PrimarySubcategoryTwo: Codable {
+		public struct PrimarySubcategoryTwo: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -471,7 +471,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -515,11 +515,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct SecondaryCategory: Codable {
+		public struct SecondaryCategory: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -541,7 +541,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -585,11 +585,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct SecondarySubcategoryOne: Codable {
+		public struct SecondarySubcategoryOne: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -611,7 +611,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -655,11 +655,11 @@ public struct AppInfo: Codable, Identifiable {
 			}
 		}
 
-		public struct SecondarySubcategoryTwo: Codable {
+		public struct SecondarySubcategoryTwo: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -681,7 +681,7 @@ public struct AppInfo: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

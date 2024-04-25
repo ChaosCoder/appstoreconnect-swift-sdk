@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct SubscriptionOfferCodesResponse: Codable {
+public struct SubscriptionOfferCodesResponse: Codable, Equatable {
 	public var data: [SubscriptionOfferCode]
 	public var included: [IncludedItem]?
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case subscription(Subscription)
 		case subscriptionOfferCodeOneTimeUseCode(SubscriptionOfferCodeOneTimeUseCode)
 		case subscriptionOfferCodeCustomCode(SubscriptionOfferCodeCustomCode)

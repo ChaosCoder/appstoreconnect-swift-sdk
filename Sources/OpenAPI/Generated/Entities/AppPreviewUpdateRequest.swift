@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppPreviewUpdateRequest: Codable {
+public struct AppPreviewUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct AppPreviewUpdateRequest: Codable {
 			case appPreviews
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var sourceFileChecksum: String?
 			public var previewFrameTimeCode: String?
 			public var isUploaded: Bool?

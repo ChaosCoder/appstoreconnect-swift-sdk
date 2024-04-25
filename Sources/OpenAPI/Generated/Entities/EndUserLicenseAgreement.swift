@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct EndUserLicenseAgreement: Codable, Identifiable {
+public struct EndUserLicenseAgreement: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct EndUserLicenseAgreement: Codable, Identifiable {
 		case endUserLicenseAgreements
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var agreementText: String?
 
 		public init(agreementText: String? = nil) {
@@ -32,15 +32,15 @@ public struct EndUserLicenseAgreement: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var territories: Territories?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -62,7 +62,7 @@ public struct EndUserLicenseAgreement: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -106,12 +106,12 @@ public struct EndUserLicenseAgreement: Codable, Identifiable {
 			}
 		}
 
-		public struct Territories: Codable {
+		public struct Territories: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -133,7 +133,7 @@ public struct EndUserLicenseAgreement: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

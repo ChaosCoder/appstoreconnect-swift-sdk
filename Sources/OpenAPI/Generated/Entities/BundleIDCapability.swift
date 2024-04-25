@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BundleIDCapability: Codable, Identifiable {
+public struct BundleIDCapability: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct BundleIDCapability: Codable, Identifiable {
 		case bundleIDCapabilities = "bundleIdCapabilities"
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var capabilityType: CapabilityType?
 		public var settings: [CapabilitySetting]?
 

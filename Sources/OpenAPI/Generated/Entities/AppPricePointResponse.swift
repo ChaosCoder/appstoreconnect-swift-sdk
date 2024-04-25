@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppPricePointResponse: Codable {
+public struct AppPricePointResponse: Codable, Equatable {
 	/// AppPricePoint
 	///
 	/// - warning: Deprecated.
@@ -12,7 +12,7 @@ public struct AppPricePointResponse: Codable {
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case appPriceTier(AppPriceTier)
 		case territory(Territory)
 

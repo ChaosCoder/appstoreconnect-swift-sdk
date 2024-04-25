@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppPricePointV3: Codable, Identifiable {
+public struct AppPricePointV3: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppPricePointV3: Codable, Identifiable {
 		case appPricePoints
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var customerPrice: String?
 		public var proceeds: String?
 
@@ -36,15 +36,15 @@ public struct AppPricePointV3: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var territory: Territory?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -66,7 +66,7 @@ public struct AppPricePointV3: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -110,11 +110,11 @@ public struct AppPricePointV3: Codable, Identifiable {
 			}
 		}
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -136,7 +136,7 @@ public struct AppPricePointV3: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

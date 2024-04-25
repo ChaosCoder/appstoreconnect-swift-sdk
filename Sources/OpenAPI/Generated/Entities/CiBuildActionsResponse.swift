@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiBuildActionsResponse: Codable {
+public struct CiBuildActionsResponse: Codable, Equatable {
 	public var data: [CiBuildAction]
 	public var included: [CiBuildRun]?
 	public var links: PagedDocumentLinks

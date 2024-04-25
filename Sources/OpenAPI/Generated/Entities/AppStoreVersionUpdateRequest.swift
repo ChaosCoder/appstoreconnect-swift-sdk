@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppStoreVersionUpdateRequest: Codable {
+public struct AppStoreVersionUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -16,7 +16,7 @@ public struct AppStoreVersionUpdateRequest: Codable {
 			case appStoreVersions
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var versionString: String?
 			public var copyright: String?
 			public var reviewType: ReviewType?
@@ -65,14 +65,14 @@ public struct AppStoreVersionUpdateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var build: Build?
 			public var appClipDefaultExperience: AppClipDefaultExperience?
 
-			public struct Build: Codable {
+			public struct Build: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -113,10 +113,10 @@ public struct AppStoreVersionUpdateRequest: Codable {
 				}
 			}
 
-			public struct AppClipDefaultExperience: Codable {
+			public struct AppClipDefaultExperience: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

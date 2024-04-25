@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterAchievementLocalizationCreateRequest: Codable {
+public struct GameCenterAchievementLocalizationCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct GameCenterAchievementLocalizationCreateRequest: Codable {
 			case gameCenterAchievementLocalizations
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var locale: String
 			public var name: String
 			public var beforeEarnedDescription: String
@@ -45,13 +45,13 @@ public struct GameCenterAchievementLocalizationCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var gameCenterAchievement: GameCenterAchievement
 
-			public struct GameCenterAchievement: Codable {
+			public struct GameCenterAchievement: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

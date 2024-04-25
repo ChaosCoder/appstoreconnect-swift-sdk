@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppStoreVersionPhasedReleaseWithoutIncludesResponse: Codable {
+public struct AppStoreVersionPhasedReleaseWithoutIncludesResponse: Codable, Equatable {
 	/// AppStoreVersion
 	public var data: AppStoreVersion
 	public var links: DocumentLinks

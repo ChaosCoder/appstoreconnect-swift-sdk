@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterAchievementReleaseCreateRequest: Codable {
+public struct GameCenterAchievementReleaseCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -14,14 +14,14 @@ public struct GameCenterAchievementReleaseCreateRequest: Codable {
 			case gameCenterAchievementReleases
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var gameCenterDetail: GameCenterDetail
 			public var gameCenterAchievement: GameCenterAchievement
 
-			public struct GameCenterDetail: Codable {
+			public struct GameCenterDetail: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -62,10 +62,10 @@ public struct GameCenterAchievementReleaseCreateRequest: Codable {
 				}
 			}
 
-			public struct GameCenterAchievement: Codable {
+			public struct GameCenterAchievement: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

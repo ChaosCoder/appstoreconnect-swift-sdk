@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
+public struct SubscriptionIntroductoryOffer: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 		case subscriptionIntroductoryOffers
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var startDate: String?
 		public var endDate: String?
 		public var duration: SubscriptionOfferDuration?
@@ -48,16 +48,16 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var subscription: Subscription?
 		public var territory: Territory?
 		public var subscriptionPricePoint: SubscriptionPricePoint?
 
-		public struct Subscription: Codable {
+		public struct Subscription: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -79,7 +79,7 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -123,11 +123,11 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 			}
 		}
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -149,7 +149,7 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -193,11 +193,11 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 			}
 		}
 
-		public struct SubscriptionPricePoint: Codable {
+		public struct SubscriptionPricePoint: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -219,7 +219,7 @@ public struct SubscriptionIntroductoryOffer: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

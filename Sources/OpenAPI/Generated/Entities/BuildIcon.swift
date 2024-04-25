@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BuildIcon: Codable, Identifiable {
+public struct BuildIcon: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct BuildIcon: Codable, Identifiable {
 		case buildIcons
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var iconAsset: ImageAsset?
 		public var iconType: IconAssetType?

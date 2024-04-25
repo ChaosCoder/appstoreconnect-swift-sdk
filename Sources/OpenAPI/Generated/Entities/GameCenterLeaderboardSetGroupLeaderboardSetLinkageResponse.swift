@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardSetGroupLeaderboardSetLinkageResponse: Codable {
+public struct GameCenterLeaderboardSetGroupLeaderboardSetLinkageResponse: Codable, Equatable {
 	public var data: Data
 	public var links: DocumentLinks
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 

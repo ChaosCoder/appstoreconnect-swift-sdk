@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingRuleSetCreateRequest: Codable {
+public struct GameCenterMatchmakingRuleSetCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -14,7 +14,7 @@ public struct GameCenterMatchmakingRuleSetCreateRequest: Codable {
 			case gameCenterMatchmakingRuleSets
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var referenceName: String
 			public var ruleLanguageVersion: Int
 			public var minPlayers: Int

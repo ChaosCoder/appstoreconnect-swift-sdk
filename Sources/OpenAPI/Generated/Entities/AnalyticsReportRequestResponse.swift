@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AnalyticsReportRequestResponse: Codable {
+public struct AnalyticsReportRequestResponse: Codable, Equatable {
 	/// AnalyticsReportRequest
 	public var data: AnalyticsReportRequest
 	public var included: [AnalyticsReport]?

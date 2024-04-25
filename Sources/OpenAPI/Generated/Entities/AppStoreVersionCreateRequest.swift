@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppStoreVersionCreateRequest: Codable {
+public struct AppStoreVersionCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct AppStoreVersionCreateRequest: Codable {
 			case appStoreVersions
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var platform: Platform
 			public var versionString: String
 			public var copyright: String?
@@ -64,15 +64,15 @@ public struct AppStoreVersionCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var app: App
 			public var appStoreVersionLocalizations: AppStoreVersionLocalizations?
 			public var build: Build?
 
-			public struct App: Codable {
+			public struct App: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -113,10 +113,10 @@ public struct AppStoreVersionCreateRequest: Codable {
 				}
 			}
 
-			public struct AppStoreVersionLocalizations: Codable {
+			public struct AppStoreVersionLocalizations: Codable, Equatable {
 				public var data: [Datum]?
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -157,10 +157,10 @@ public struct AppStoreVersionCreateRequest: Codable {
 				}
 			}
 
-			public struct Build: Codable {
+			public struct Build: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

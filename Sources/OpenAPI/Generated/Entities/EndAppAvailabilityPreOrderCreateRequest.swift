@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct EndAppAvailabilityPreOrderCreateRequest: Codable {
+public struct EndAppAvailabilityPreOrderCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -14,13 +14,13 @@ public struct EndAppAvailabilityPreOrderCreateRequest: Codable {
 			case endAppAvailabilityPreOrders
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var territoryAvailabilities: TerritoryAvailabilities
 
-			public struct TerritoryAvailabilities: Codable {
+			public struct TerritoryAvailabilities: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionGroupSubmission: Codable, Identifiable {
+public struct SubscriptionGroupSubmission: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var links: ResourceLinks?

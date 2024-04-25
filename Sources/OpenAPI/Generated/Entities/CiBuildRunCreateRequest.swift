@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct CiBuildRunCreateRequest: Codable {
+public struct CiBuildRunCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes?
 		public var relationships: Relationships?
@@ -15,7 +15,7 @@ public struct CiBuildRunCreateRequest: Codable {
 			case ciBuildRuns
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isClean: Bool?
 
 			public init(isClean: Bool? = nil) {
@@ -33,16 +33,16 @@ public struct CiBuildRunCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var buildRun: BuildRun?
 			public var workflow: Workflow?
 			public var sourceBranchOrTag: SourceBranchOrTag?
 			public var pullRequest: PullRequest?
 
-			public struct BuildRun: Codable {
+			public struct BuildRun: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -83,10 +83,10 @@ public struct CiBuildRunCreateRequest: Codable {
 				}
 			}
 
-			public struct Workflow: Codable {
+			public struct Workflow: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -127,10 +127,10 @@ public struct CiBuildRunCreateRequest: Codable {
 				}
 			}
 
-			public struct SourceBranchOrTag: Codable {
+			public struct SourceBranchOrTag: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -171,10 +171,10 @@ public struct CiBuildRunCreateRequest: Codable {
 				}
 			}
 
-			public struct PullRequest: Codable {
+			public struct PullRequest: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

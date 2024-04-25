@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppScreenshotSet: Codable, Identifiable {
+public struct AppScreenshotSet: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppScreenshotSet: Codable, Identifiable {
 		case appScreenshotSets
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var screenshotDisplayType: ScreenshotDisplayType?
 
 		public init(screenshotDisplayType: ScreenshotDisplayType? = nil) {
@@ -32,17 +32,17 @@ public struct AppScreenshotSet: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersionLocalization: AppStoreVersionLocalization?
 		public var appCustomProductPageLocalization: AppCustomProductPageLocalization?
 		public var appStoreVersionExperimentTreatmentLocalization: AppStoreVersionExperimentTreatmentLocalization?
 		public var appScreenshots: AppScreenshots?
 
-		public struct AppStoreVersionLocalization: Codable {
+		public struct AppStoreVersionLocalization: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -64,7 +64,7 @@ public struct AppScreenshotSet: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -108,11 +108,11 @@ public struct AppScreenshotSet: Codable, Identifiable {
 			}
 		}
 
-		public struct AppCustomProductPageLocalization: Codable {
+		public struct AppCustomProductPageLocalization: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -134,7 +134,7 @@ public struct AppScreenshotSet: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -178,11 +178,11 @@ public struct AppScreenshotSet: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersionExperimentTreatmentLocalization: Codable {
+		public struct AppStoreVersionExperimentTreatmentLocalization: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -204,7 +204,7 @@ public struct AppScreenshotSet: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -248,12 +248,12 @@ public struct AppScreenshotSet: Codable, Identifiable {
 			}
 		}
 
-		public struct AppScreenshots: Codable {
+		public struct AppScreenshots: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -275,7 +275,7 @@ public struct AppScreenshotSet: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

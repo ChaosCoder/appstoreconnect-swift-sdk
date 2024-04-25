@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct AppClipAdvancedExperienceCreateRequest: Codable {
+public struct AppClipAdvancedExperienceCreateRequest: Codable, Equatable {
 	public var data: Data
 	public var included: [AppClipAdvancedExperienceLocalizationInlineCreate]?
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -16,7 +16,7 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 			case appClipAdvancedExperiences
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var link: URL
 			public var action: AppClipAction?
 			public var isPoweredBy: Bool
@@ -24,7 +24,7 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 			public var businessCategory: BusinessCategory?
 			public var defaultLanguage: AppClipAdvancedExperienceLanguage
 
-			public struct Place: Codable {
+			public struct Place: Codable, Equatable {
 				public var placeID: String?
 				public var names: [String]?
 				public var mainAddress: MainAddress?
@@ -35,11 +35,11 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 				public var homePage: String?
 				public var categories: [String]?
 
-				public struct MainAddress: Codable {
+				public struct MainAddress: Codable, Equatable {
 					public var fullAddress: String?
 					public var structuredAddress: StructuredAddress?
 
-					public struct StructuredAddress: Codable {
+					public struct StructuredAddress: Codable, Equatable {
 						public var streetAddress: [String]?
 						public var floor: String?
 						public var neighborhood: String?
@@ -99,11 +99,11 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 					}
 				}
 
-				public struct DisplayPoint: Codable {
+				public struct DisplayPoint: Codable, Equatable {
 					public var coordinates: Coordinates?
 					public var source: Source?
 
-					public struct Coordinates: Codable {
+					public struct Coordinates: Codable, Equatable {
 						public var latitude: Double?
 						public var longitude: Double?
 
@@ -170,7 +170,7 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 					case other = "OTHER"
 				}
 
-				public struct PhoneNumber: Codable {
+				public struct PhoneNumber: Codable, Equatable {
 					public var number: String?
 					public var type: `Type`?
 					public var intent: String?
@@ -302,15 +302,15 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var appClip: AppClip
 			public var headerImage: HeaderImage
 			public var localizations: Localizations
 
-			public struct AppClip: Codable {
+			public struct AppClip: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -351,10 +351,10 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 				}
 			}
 
-			public struct HeaderImage: Codable {
+			public struct HeaderImage: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -395,10 +395,10 @@ public struct AppClipAdvancedExperienceCreateRequest: Codable {
 				}
 			}
 
-			public struct Localizations: Codable {
+			public struct Localizations: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

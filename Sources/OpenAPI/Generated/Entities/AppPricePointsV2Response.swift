@@ -4,13 +4,13 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppPricePointsV2Response: Codable {
+public struct AppPricePointsV2Response: Codable, Equatable {
 	public var data: [AppPricePointV2]
 	public var included: [IncludedItem]?
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case app(App)
 		case appPriceTier(AppPriceTier)
 		case territory(Territory)

@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppPriceTierResponse: Codable {
+public struct AppPriceTierResponse: Codable, Equatable {
 	/// AppPriceTier
 	///
 	/// - warning: Deprecated.

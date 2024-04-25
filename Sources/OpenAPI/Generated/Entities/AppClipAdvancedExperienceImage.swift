@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppClipAdvancedExperienceImage: Codable, Identifiable {
+public struct AppClipAdvancedExperienceImage: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct AppClipAdvancedExperienceImage: Codable, Identifiable {
 		case appClipAdvancedExperienceImages
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var fileSize: Int?
 		public var fileName: String?
 		public var sourceFileChecksum: String?

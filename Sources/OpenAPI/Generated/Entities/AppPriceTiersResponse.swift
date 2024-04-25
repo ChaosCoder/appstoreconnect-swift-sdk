@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppPriceTiersResponse: Codable {
+public struct AppPriceTiersResponse: Codable, Equatable {
 	public var data: [AppPriceTier]
 	public var included: [AppPricePoint]?
 	public var links: PagedDocumentLinks

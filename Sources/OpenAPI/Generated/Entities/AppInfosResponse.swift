@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct AppInfosResponse: Codable {
+public struct AppInfosResponse: Codable, Equatable {
 	public var data: [AppInfo]
 	public var included: [IncludedItem]?
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case app(App)
 		case ageRatingDeclaration(AgeRatingDeclaration)
 		case appInfoLocalization(AppInfoLocalization)

@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct ProfileCreateRequest: Codable {
+public struct ProfileCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct ProfileCreateRequest: Codable {
 			case profiles
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String
 			public var profileType: ProfileType
 
@@ -54,15 +54,15 @@ public struct ProfileCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var bundleID: BundleID
 			public var devices: Devices?
 			public var certificates: Certificates
 
-			public struct BundleID: Codable {
+			public struct BundleID: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -103,10 +103,10 @@ public struct ProfileCreateRequest: Codable {
 				}
 			}
 
-			public struct Devices: Codable {
+			public struct Devices: Codable, Equatable {
 				public var data: [Datum]?
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -147,10 +147,10 @@ public struct ProfileCreateRequest: Codable {
 				}
 			}
 
-			public struct Certificates: Codable {
+			public struct Certificates: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

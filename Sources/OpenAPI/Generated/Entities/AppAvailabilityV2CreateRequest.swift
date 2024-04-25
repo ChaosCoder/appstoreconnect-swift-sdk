@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct AppAvailabilityV2CreateRequest: Codable {
+public struct AppAvailabilityV2CreateRequest: Codable, Equatable {
 	public var data: Data
 	public var included: [TerritoryAvailabilityInlineCreate]?
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -16,7 +16,7 @@ public struct AppAvailabilityV2CreateRequest: Codable {
 			case appAvailabilities
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isAvailableInNewTerritories: Bool
 
 			public init(isAvailableInNewTerritories: Bool) {
@@ -34,14 +34,14 @@ public struct AppAvailabilityV2CreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var app: App
 			public var territoryAvailabilities: TerritoryAvailabilities
 
-			public struct App: Codable {
+			public struct App: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -82,10 +82,10 @@ public struct AppAvailabilityV2CreateRequest: Codable {
 				}
 			}
 
-			public struct TerritoryAvailabilities: Codable {
+			public struct TerritoryAvailabilities: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

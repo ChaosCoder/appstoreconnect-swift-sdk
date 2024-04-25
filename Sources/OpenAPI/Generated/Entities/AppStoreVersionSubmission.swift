@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppStoreVersionSubmission: Codable, Identifiable {
+public struct AppStoreVersionSubmission: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var relationships: Relationships?
@@ -14,14 +14,14 @@ public struct AppStoreVersionSubmission: Codable, Identifiable {
 		case appStoreVersionSubmissions
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersion: AppStoreVersion?
 
-		public struct AppStoreVersion: Codable {
+		public struct AppStoreVersion: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -43,7 +43,7 @@ public struct AppStoreVersionSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

@@ -4,10 +4,10 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppStoreVersionExperimentUpdateRequest: Codable {
+public struct AppStoreVersionExperimentUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -16,7 +16,7 @@ public struct AppStoreVersionExperimentUpdateRequest: Codable {
 			case appStoreVersionExperiments
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var name: String?
 			public var trafficProportion: Int?
 			public var isStarted: Bool?

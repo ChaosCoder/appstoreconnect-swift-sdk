@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppMediaAssetState: Codable {
+public struct AppMediaAssetState: Codable, Equatable {
 	public var errors: [AppMediaStateError]?
 	public var warnings: [AppMediaStateError]?
 	public var state: State?

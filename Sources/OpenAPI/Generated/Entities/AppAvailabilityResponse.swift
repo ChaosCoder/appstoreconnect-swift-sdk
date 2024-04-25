@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppAvailabilityResponse: Codable {
+public struct AppAvailabilityResponse: Codable, Equatable {
 	/// AppAvailability
 	///
 	/// - warning: Deprecated.
@@ -12,7 +12,7 @@ public struct AppAvailabilityResponse: Codable {
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case app(App)
 		case territory(Territory)
 

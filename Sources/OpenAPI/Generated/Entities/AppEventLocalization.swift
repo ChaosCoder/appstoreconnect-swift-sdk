@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppEventLocalization: Codable, Identifiable {
+public struct AppEventLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct AppEventLocalization: Codable, Identifiable {
 		case appEventLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var locale: String?
 		public var name: String?
 		public var shortDescription: String?
@@ -44,16 +44,16 @@ public struct AppEventLocalization: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appEvent: AppEvent?
 		public var appEventScreenshots: AppEventScreenshots?
 		public var appEventVideoClips: AppEventVideoClips?
 
-		public struct AppEvent: Codable {
+		public struct AppEvent: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -75,7 +75,7 @@ public struct AppEventLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -119,12 +119,12 @@ public struct AppEventLocalization: Codable, Identifiable {
 			}
 		}
 
-		public struct AppEventScreenshots: Codable {
+		public struct AppEventScreenshots: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -146,7 +146,7 @@ public struct AppEventLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -193,12 +193,12 @@ public struct AppEventLocalization: Codable, Identifiable {
 			}
 		}
 
-		public struct AppEventVideoClips: Codable {
+		public struct AppEventVideoClips: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -220,7 +220,7 @@ public struct AppEventLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

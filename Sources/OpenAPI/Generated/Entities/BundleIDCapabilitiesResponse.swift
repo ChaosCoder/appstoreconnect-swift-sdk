@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BundleIDCapabilitiesResponse: Codable {
+public struct BundleIDCapabilitiesResponse: Codable, Equatable {
 	public var data: [BundleIDCapability]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?

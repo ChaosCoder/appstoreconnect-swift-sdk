@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ReviewSubmission: Codable, Identifiable {
+public struct ReviewSubmission: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct ReviewSubmission: Codable, Identifiable {
 		case reviewSubmissions
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var platform: Platform?
 		public var submittedDate: Date?
 		public var state: State?
@@ -50,18 +50,18 @@ public struct ReviewSubmission: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var app: App?
 		public var items: Items?
 		public var appStoreVersionForReview: AppStoreVersionForReview?
 		public var submittedByActor: SubmittedByActor?
 		public var lastUpdatedByActor: LastUpdatedByActor?
 
-		public struct App: Codable {
+		public struct App: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -83,7 +83,7 @@ public struct ReviewSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -127,12 +127,12 @@ public struct ReviewSubmission: Codable, Identifiable {
 			}
 		}
 
-		public struct Items: Codable {
+		public struct Items: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -154,7 +154,7 @@ public struct ReviewSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -201,11 +201,11 @@ public struct ReviewSubmission: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersionForReview: Codable {
+		public struct AppStoreVersionForReview: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -227,7 +227,7 @@ public struct ReviewSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -271,11 +271,11 @@ public struct ReviewSubmission: Codable, Identifiable {
 			}
 		}
 
-		public struct SubmittedByActor: Codable {
+		public struct SubmittedByActor: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -297,7 +297,7 @@ public struct ReviewSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -341,11 +341,11 @@ public struct ReviewSubmission: Codable, Identifiable {
 			}
 		}
 
-		public struct LastUpdatedByActor: Codable {
+		public struct LastUpdatedByActor: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -367,7 +367,7 @@ public struct ReviewSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

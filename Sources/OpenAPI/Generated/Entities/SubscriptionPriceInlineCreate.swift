@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionPriceInlineCreate: Codable, Identifiable {
+public struct SubscriptionPriceInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct SubscriptionPriceInlineCreate: Codable, Identifiable {
 		case subscriptionPrices
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var startDate: String?
 		public var isPreserveCurrentPrice: Bool?
 
@@ -35,15 +35,15 @@ public struct SubscriptionPriceInlineCreate: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var subscription: Subscription?
 		public var territory: Territory?
 		public var subscriptionPricePoint: SubscriptionPricePoint?
 
-		public struct Subscription: Codable {
+		public struct Subscription: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -84,10 +84,10 @@ public struct SubscriptionPriceInlineCreate: Codable, Identifiable {
 			}
 		}
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -128,10 +128,10 @@ public struct SubscriptionPriceInlineCreate: Codable, Identifiable {
 			}
 		}
 
-		public struct SubscriptionPricePoint: Codable {
+		public struct SubscriptionPricePoint: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

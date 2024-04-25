@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CiBuildRun: Codable, Identifiable {
+public struct CiBuildRun: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct CiBuildRun: Codable, Identifiable {
 		case ciBuildRuns
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var number: Int?
 		public var createdDate: Date?
 		public var startedDate: Date?
@@ -28,7 +28,7 @@ public struct CiBuildRun: Codable, Identifiable {
 		public var startReason: StartReason?
 		public var cancelReason: CancelReason?
 
-		public struct SourceCommit: Codable {
+		public struct SourceCommit: Codable, Equatable {
 			public var commitSha: String?
 			public var message: String?
 			public var author: CiGitUser?
@@ -62,7 +62,7 @@ public struct CiBuildRun: Codable, Identifiable {
 			}
 		}
 
-		public struct DestinationCommit: Codable {
+		public struct DestinationCommit: Codable, Equatable {
 			public var commitSha: String?
 			public var message: String?
 			public var author: CiGitUser?
@@ -158,7 +158,7 @@ public struct CiBuildRun: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var builds: Builds?
 		public var workflow: Workflow?
 		public var product: Product?
@@ -166,12 +166,12 @@ public struct CiBuildRun: Codable, Identifiable {
 		public var destinationBranch: DestinationBranch?
 		public var pullRequest: PullRequest?
 
-		public struct Builds: Codable {
+		public struct Builds: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -193,7 +193,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -240,11 +240,11 @@ public struct CiBuildRun: Codable, Identifiable {
 			}
 		}
 
-		public struct Workflow: Codable {
+		public struct Workflow: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -266,7 +266,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -310,11 +310,11 @@ public struct CiBuildRun: Codable, Identifiable {
 			}
 		}
 
-		public struct Product: Codable {
+		public struct Product: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -336,7 +336,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -380,11 +380,11 @@ public struct CiBuildRun: Codable, Identifiable {
 			}
 		}
 
-		public struct SourceBranchOrTag: Codable {
+		public struct SourceBranchOrTag: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -406,7 +406,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -450,11 +450,11 @@ public struct CiBuildRun: Codable, Identifiable {
 			}
 		}
 
-		public struct DestinationBranch: Codable {
+		public struct DestinationBranch: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -476,7 +476,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -520,11 +520,11 @@ public struct CiBuildRun: Codable, Identifiable {
 			}
 		}
 
-		public struct PullRequest: Codable {
+		public struct PullRequest: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -546,7 +546,7 @@ public struct CiBuildRun: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

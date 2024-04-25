@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterAchievementLocalization: Codable, Identifiable {
+public struct GameCenterAchievementLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterAchievementLocalization: Codable, Identifiable {
 		case gameCenterAchievementLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var locale: String?
 		public var name: String?
 		public var beforeEarnedDescription: String?
@@ -44,15 +44,15 @@ public struct GameCenterAchievementLocalization: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var gameCenterAchievement: GameCenterAchievement?
 		public var gameCenterAchievementImage: GameCenterAchievementImage?
 
-		public struct GameCenterAchievement: Codable {
+		public struct GameCenterAchievement: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -74,7 +74,7 @@ public struct GameCenterAchievementLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -118,11 +118,11 @@ public struct GameCenterAchievementLocalization: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterAchievementImage: Codable {
+		public struct GameCenterAchievementImage: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -144,7 +144,7 @@ public struct GameCenterAchievementLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

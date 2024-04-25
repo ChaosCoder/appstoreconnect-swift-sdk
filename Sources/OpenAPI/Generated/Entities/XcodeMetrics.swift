@@ -3,12 +3,12 @@
 
 import Foundation
 
-public struct XcodeMetrics: Codable {
+public struct XcodeMetrics: Codable, Equatable {
 	public var version: String?
 	public var insights: Insights?
 	public var productData: [ProductDatum]?
 
-	public struct Insights: Codable {
+	public struct Insights: Codable, Equatable {
 		public var trendingUp: [MetricsInsight]?
 		public var regressions: [MetricsInsight]?
 
@@ -30,21 +30,21 @@ public struct XcodeMetrics: Codable {
 		}
 	}
 
-	public struct ProductDatum: Codable {
+	public struct ProductDatum: Codable, Equatable {
 		public var platform: String?
 		public var metricCategories: [MetricCategory]?
 
-		public final class MetricCategory: Codable {
-			public let identifier: AppStoreConnect_Swift_SDK.MetricCategory?
-			public let metrics: [Metric]?
+		public struct MetricCategory: Codable, Equatable {
+			public var identifier: MetricCategoryIdentifier?
+			public var metrics: [Metric]?
 
-			public struct Metric: Codable {
+			public struct Metric: Codable, Equatable {
 				public var identifier: String?
 				public var goalKeys: [GoalKey]?
 				public var unit: Unit?
 				public var datasets: [Dataset]?
 
-				public struct GoalKey: Codable {
+				public struct GoalKey: Codable, Equatable {
 					public var goalKey: String?
 					public var lowerBound: Int?
 					public var upperBound: Int?
@@ -70,7 +70,7 @@ public struct XcodeMetrics: Codable {
 					}
 				}
 
-				public struct Unit: Codable {
+				public struct Unit: Codable, Equatable {
 					public var identifier: String?
 					public var displayName: String?
 
@@ -92,11 +92,11 @@ public struct XcodeMetrics: Codable {
 					}
 				}
 
-				public struct Dataset: Codable {
+				public struct Dataset: Codable, Equatable {
 					public var filterCriteria: FilterCriteria?
 					public var points: [Point]?
 
-					public struct FilterCriteria: Codable {
+					public struct FilterCriteria: Codable, Equatable {
 						public var percentile: String?
 						public var device: String?
 						public var deviceMarketingName: String?
@@ -122,14 +122,14 @@ public struct XcodeMetrics: Codable {
 						}
 					}
 
-					public struct Point: Codable {
+					public struct Point: Codable, Equatable {
 						public var version: String?
 						public var value: Double?
 						public var errorMargin: Double?
 						public var percentageBreakdown: PercentageBreakdown?
 						public var goal: String?
 
-						public struct PercentageBreakdown: Codable {
+						public struct PercentageBreakdown: Codable, Equatable {
 							public var value: Double?
 							public var subSystemLabel: String?
 
@@ -220,14 +220,14 @@ public struct XcodeMetrics: Codable {
 				}
 			}
 
-			public init(identifier: AppStoreConnect_Swift_SDK.MetricCategory? = nil, metrics: [Metric]? = nil) {
+			public init(identifier: MetricCategoryIdentifier? = nil, metrics: [Metric]? = nil) {
 				self.identifier = identifier
 				self.metrics = metrics
 			}
 
 			public init(from decoder: Decoder) throws {
 				let values = try decoder.container(keyedBy: StringCodingKey.self)
-				self.identifier = try values.decodeIfPresent(AppStoreConnect_Swift_SDK.MetricCategory.self, forKey: "identifier")
+				self.identifier = try values.decodeIfPresent(MetricCategoryIdentifier.self, forKey: "identifier")
 				self.metrics = try values.decodeIfPresent([Metric].self, forKey: "metrics")
 			}
 

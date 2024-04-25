@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BetaAppClipInvocationLocalizationInlineCreate: Codable, Identifiable {
+public struct BetaAppClipInvocationLocalizationInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 	public var attributes: Attributes
@@ -13,7 +13,7 @@ public struct BetaAppClipInvocationLocalizationInlineCreate: Codable, Identifiab
 		case betaAppClipInvocationLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var title: String
 		public var locale: String
 
@@ -35,13 +35,13 @@ public struct BetaAppClipInvocationLocalizationInlineCreate: Codable, Identifiab
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var betaAppClipInvocation: BetaAppClipInvocation?
 
-		public struct BetaAppClipInvocation: Codable {
+		public struct BetaAppClipInvocation: Codable, Equatable {
 			public var data: Data?
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

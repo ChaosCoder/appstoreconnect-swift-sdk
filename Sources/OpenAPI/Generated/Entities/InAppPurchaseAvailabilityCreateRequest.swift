@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct InAppPurchaseAvailabilityCreateRequest: Codable {
+public struct InAppPurchaseAvailabilityCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct InAppPurchaseAvailabilityCreateRequest: Codable {
 			case inAppPurchaseAvailabilities
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isAvailableInNewTerritories: Bool
 
 			public init(isAvailableInNewTerritories: Bool) {
@@ -33,14 +33,14 @@ public struct InAppPurchaseAvailabilityCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var inAppPurchase: InAppPurchase
 			public var availableTerritories: AvailableTerritories
 
-			public struct InAppPurchase: Codable {
+			public struct InAppPurchase: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -81,10 +81,10 @@ public struct InAppPurchaseAvailabilityCreateRequest: Codable {
 				}
 			}
 
-			public struct AvailableTerritories: Codable {
+			public struct AvailableTerritories: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

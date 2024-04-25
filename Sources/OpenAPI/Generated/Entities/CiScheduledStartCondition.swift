@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct CiScheduledStartCondition: Codable {
+public struct CiScheduledStartCondition: Codable, Equatable {
 	public var source: CiBranchPatterns?
 	public var schedule: Schedule?
 
-	public struct Schedule: Codable {
+	public struct Schedule: Codable, Equatable {
 		public var frequency: Frequency?
 		public var days: [Day]?
 		public var hour: Int?

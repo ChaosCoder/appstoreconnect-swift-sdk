@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardEntrySubmissionCreateRequest: Codable {
+public struct GameCenterLeaderboardEntrySubmissionCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -14,7 +14,7 @@ public struct GameCenterLeaderboardEntrySubmissionCreateRequest: Codable {
 			case gameCenterLeaderboardEntrySubmissions
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var bundleID: String
 			public var challengeIDs: [String]?
 			public var context: String?

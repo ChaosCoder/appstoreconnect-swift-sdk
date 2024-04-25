@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingQueue: Codable, Identifiable {
+public struct GameCenterMatchmakingQueue: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterMatchmakingQueue: Codable, Identifiable {
 		case gameCenterMatchmakingQueues
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var referenceName: String?
 		public var classicMatchmakingBundleIDs: [String]?
 
@@ -36,15 +36,15 @@ public struct GameCenterMatchmakingQueue: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var ruleSet: RuleSet?
 		public var experimentRuleSet: ExperimentRuleSet?
 
-		public struct RuleSet: Codable {
+		public struct RuleSet: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -66,7 +66,7 @@ public struct GameCenterMatchmakingQueue: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -110,11 +110,11 @@ public struct GameCenterMatchmakingQueue: Codable, Identifiable {
 			}
 		}
 
-		public struct ExperimentRuleSet: Codable {
+		public struct ExperimentRuleSet: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -136,7 +136,7 @@ public struct GameCenterMatchmakingQueue: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

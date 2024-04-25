@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct ReviewSubmissionItemCreateRequest: Codable {
+public struct ReviewSubmissionItemCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -14,7 +14,7 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 			case reviewSubmissionItems
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var reviewSubmission: ReviewSubmission
 			public var appStoreVersion: AppStoreVersion?
 			public var appCustomProductPageVersion: AppCustomProductPageVersion?
@@ -22,10 +22,10 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 			public var appStoreVersionExperimentV2: AppStoreVersionExperimentV2?
 			public var appEvent: AppEvent?
 
-			public struct ReviewSubmission: Codable {
+			public struct ReviewSubmission: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -66,10 +66,10 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 				}
 			}
 
-			public struct AppStoreVersion: Codable {
+			public struct AppStoreVersion: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -110,10 +110,10 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 				}
 			}
 
-			public struct AppCustomProductPageVersion: Codable {
+			public struct AppCustomProductPageVersion: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -154,10 +154,10 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 				}
 			}
 
-			public struct AppStoreVersionExperiment: Codable {
+			public struct AppStoreVersionExperiment: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -198,10 +198,10 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 				}
 			}
 
-			public struct AppStoreVersionExperimentV2: Codable {
+			public struct AppStoreVersionExperimentV2: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -242,10 +242,10 @@ public struct ReviewSubmissionItemCreateRequest: Codable {
 				}
 			}
 
-			public struct AppEvent: Codable {
+			public struct AppEvent: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SubscriptionGroupLocalization: Codable, Identifiable {
+public struct SubscriptionGroupLocalization: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct SubscriptionGroupLocalization: Codable, Identifiable {
 		case subscriptionGroupLocalizations
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var name: String?
 		public var customAppName: String?
 		public var locale: String?
@@ -51,14 +51,14 @@ public struct SubscriptionGroupLocalization: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var subscriptionGroup: SubscriptionGroup?
 
-		public struct SubscriptionGroup: Codable {
+		public struct SubscriptionGroup: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -80,7 +80,7 @@ public struct SubscriptionGroupLocalization: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

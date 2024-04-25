@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppsWithoutIncludesResponse: Codable {
+public struct AppsWithoutIncludesResponse: Codable, Equatable {
 	public var data: [User]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct SandboxTesterV2Response: Codable {
+public struct SandboxTesterV2Response: Codable, Equatable {
 	/// SandboxTesterV2
 	public var data: SandboxTesterV2
 	public var links: DocumentLinks

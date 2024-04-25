@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct MarketplaceDomainsResponse: Codable {
+public struct MarketplaceDomainsResponse: Codable, Equatable {
 	public var data: [MarketplaceDomain]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppStoreVersionPromotionResponse: Codable {
+public struct AppStoreVersionPromotionResponse: Codable, Equatable {
 	/// AppStoreVersionPromotion
 	public var data: AppStoreVersionPromotion
 	public var links: DocumentLinks

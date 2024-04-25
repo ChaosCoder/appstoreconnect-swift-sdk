@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AlternativeDistributionKeyResponse: Codable {
+public struct AlternativeDistributionKeyResponse: Codable, Equatable {
 	/// AlternativeDistributionKey
 	public var data: AlternativeDistributionKey
 	public var links: DocumentLinks

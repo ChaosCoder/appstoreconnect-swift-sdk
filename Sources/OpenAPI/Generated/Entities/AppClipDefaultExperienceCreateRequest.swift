@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppClipDefaultExperienceCreateRequest: Codable {
+public struct AppClipDefaultExperienceCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes?
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct AppClipDefaultExperienceCreateRequest: Codable {
 			case appClipDefaultExperiences
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var action: AppClipAction?
 
 			public init(action: AppClipAction? = nil) {
@@ -33,15 +33,15 @@ public struct AppClipDefaultExperienceCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var appClip: AppClip
 			public var releaseWithAppStoreVersion: ReleaseWithAppStoreVersion?
 			public var appClipDefaultExperienceTemplate: AppClipDefaultExperienceTemplate?
 
-			public struct AppClip: Codable {
+			public struct AppClip: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -82,10 +82,10 @@ public struct AppClipDefaultExperienceCreateRequest: Codable {
 				}
 			}
 
-			public struct ReleaseWithAppStoreVersion: Codable {
+			public struct ReleaseWithAppStoreVersion: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -126,10 +126,10 @@ public struct AppClipDefaultExperienceCreateRequest: Codable {
 				}
 			}
 
-			public struct AppClipDefaultExperienceTemplate: Codable {
+			public struct AppClipDefaultExperienceTemplate: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

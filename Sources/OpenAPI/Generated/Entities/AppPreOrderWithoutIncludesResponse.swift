@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct AppPreOrderWithoutIncludesResponse: Codable {
+public struct AppPreOrderWithoutIncludesResponse: Codable, Equatable {
 	/// App
 	public var data: App
 	public var links: DocumentLinks

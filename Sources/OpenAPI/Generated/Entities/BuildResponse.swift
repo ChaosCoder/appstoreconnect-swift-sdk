@@ -3,13 +3,13 @@
 
 import Foundation
 
-public struct BuildResponse: Codable {
+public struct BuildResponse: Codable, Equatable {
 	/// Build
 	public var data: Build
 	public var included: [IncludedItem]?
 	public var links: DocumentLinks
 
-	public enum IncludedItem: Codable {
+	public enum IncludedItem: Codable, Equatable {
 		case prereleaseVersion(PrereleaseVersion)
 		case betaTester(BetaTester)
 		case betaGroup(BetaGroup)

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct ReviewSubmissionItem: Codable, Identifiable {
+public struct ReviewSubmissionItem: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 		case reviewSubmissionItems
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var state: State?
 
 		public enum State: String, Codable, CaseIterable {
@@ -40,18 +40,18 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appStoreVersion: AppStoreVersion?
 		public var appCustomProductPageVersion: AppCustomProductPageVersion?
 		public var appStoreVersionExperiment: AppStoreVersionExperiment?
 		public var appStoreVersionExperimentV2: AppStoreVersionExperimentV2?
 		public var appEvent: AppEvent?
 
-		public struct AppStoreVersion: Codable {
+		public struct AppStoreVersion: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -73,7 +73,7 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -117,11 +117,11 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 			}
 		}
 
-		public struct AppCustomProductPageVersion: Codable {
+		public struct AppCustomProductPageVersion: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -143,7 +143,7 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -187,11 +187,11 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersionExperiment: Codable {
+		public struct AppStoreVersionExperiment: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -213,7 +213,7 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -257,11 +257,11 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 			}
 		}
 
-		public struct AppStoreVersionExperimentV2: Codable {
+		public struct AppStoreVersionExperimentV2: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -283,7 +283,7 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -327,11 +327,11 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 			}
 		}
 
-		public struct AppEvent: Codable {
+		public struct AppEvent: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -353,7 +353,7 @@ public struct ReviewSubmissionItem: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

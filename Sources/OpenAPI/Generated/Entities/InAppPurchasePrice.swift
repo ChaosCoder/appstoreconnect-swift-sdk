@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct InAppPurchasePrice: Codable, Identifiable {
+public struct InAppPurchasePrice: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct InAppPurchasePrice: Codable, Identifiable {
 		case inAppPurchasePrices
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var startDate: String?
 		public var endDate: String?
 		public var isManual: Bool?
@@ -40,15 +40,15 @@ public struct InAppPurchasePrice: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var inAppPurchasePricePoint: InAppPurchasePricePoint?
 		public var territory: Territory?
 
-		public struct InAppPurchasePricePoint: Codable {
+		public struct InAppPurchasePricePoint: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -70,7 +70,7 @@ public struct InAppPurchasePrice: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -114,11 +114,11 @@ public struct InAppPurchasePrice: Codable, Identifiable {
 			}
 		}
 
-		public struct Territory: Codable {
+		public struct Territory: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -140,7 +140,7 @@ public struct InAppPurchasePrice: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

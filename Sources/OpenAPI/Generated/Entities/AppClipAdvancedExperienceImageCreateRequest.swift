@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AppClipAdvancedExperienceImageCreateRequest: Codable {
+public struct AppClipAdvancedExperienceImageCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -14,7 +14,7 @@ public struct AppClipAdvancedExperienceImageCreateRequest: Codable {
 			case appClipAdvancedExperienceImages
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var fileSize: Int
 			public var fileName: String
 

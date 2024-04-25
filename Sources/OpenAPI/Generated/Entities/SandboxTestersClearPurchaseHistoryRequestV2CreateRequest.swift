@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct SandboxTestersClearPurchaseHistoryRequestV2CreateRequest: Codable {
+public struct SandboxTestersClearPurchaseHistoryRequestV2CreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var relationships: Relationships
 
@@ -14,13 +14,13 @@ public struct SandboxTestersClearPurchaseHistoryRequestV2CreateRequest: Codable 
 			case sandboxTestersClearPurchaseHistoryRequest
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var sandboxTesters: SandboxTesters
 
-			public struct SandboxTesters: Codable {
+			public struct SandboxTesters: Codable, Equatable {
 				public var data: [Datum]
 
-				public struct Datum: Codable, Identifiable {
+				public struct Datum: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

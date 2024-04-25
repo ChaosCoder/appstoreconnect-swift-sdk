@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct TerritoryAvailabilityUpdateRequest: Codable {
+public struct TerritoryAvailabilityUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct TerritoryAvailabilityUpdateRequest: Codable {
 			case territoryAvailabilities
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isAvailable: Bool?
 			public var releaseDate: String?
 			public var isPreOrderEnabled: Bool?

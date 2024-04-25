@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct BuildBundle: Codable, Identifiable {
+public struct BuildBundle: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct BuildBundle: Codable, Identifiable {
 		case buildBundles
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var bundleID: String?
 		public var bundleType: BundleType?
 		public var sdkBuild: String?
@@ -101,17 +101,17 @@ public struct BuildBundle: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var appClipDomainCacheStatus: AppClipDomainCacheStatus?
 		public var appClipDomainDebugStatus: AppClipDomainDebugStatus?
 		public var betaAppClipInvocations: BetaAppClipInvocations?
 		public var buildBundleFileSizes: BuildBundleFileSizes?
 
-		public struct AppClipDomainCacheStatus: Codable {
+		public struct AppClipDomainCacheStatus: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -133,7 +133,7 @@ public struct BuildBundle: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -177,11 +177,11 @@ public struct BuildBundle: Codable, Identifiable {
 			}
 		}
 
-		public struct AppClipDomainDebugStatus: Codable {
+		public struct AppClipDomainDebugStatus: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -203,7 +203,7 @@ public struct BuildBundle: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -247,12 +247,12 @@ public struct BuildBundle: Codable, Identifiable {
 			}
 		}
 
-		public struct BetaAppClipInvocations: Codable {
+		public struct BetaAppClipInvocations: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -274,7 +274,7 @@ public struct BuildBundle: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -321,12 +321,12 @@ public struct BuildBundle: Codable, Identifiable {
 			}
 		}
 
-		public struct BuildBundleFileSizes: Codable {
+		public struct BuildBundleFileSizes: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -348,7 +348,7 @@ public struct BuildBundle: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

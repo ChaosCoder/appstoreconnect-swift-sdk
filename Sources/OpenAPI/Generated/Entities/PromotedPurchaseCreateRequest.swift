@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct PromotedPurchaseCreateRequest: Codable {
+public struct PromotedPurchaseCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct PromotedPurchaseCreateRequest: Codable {
 			case promotedPurchases
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isVisibleForAllUsers: Bool
 			public var isEnabled: Bool?
 
@@ -37,15 +37,15 @@ public struct PromotedPurchaseCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var app: App
 			public var inAppPurchaseV2: InAppPurchaseV2?
 			public var subscription: Subscription?
 
-			public struct App: Codable {
+			public struct App: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -86,10 +86,10 @@ public struct PromotedPurchaseCreateRequest: Codable {
 				}
 			}
 
-			public struct InAppPurchaseV2: Codable {
+			public struct InAppPurchaseV2: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 
@@ -130,10 +130,10 @@ public struct PromotedPurchaseCreateRequest: Codable {
 				}
 			}
 
-			public struct Subscription: Codable {
+			public struct Subscription: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

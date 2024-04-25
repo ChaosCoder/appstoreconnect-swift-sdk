@@ -4,7 +4,7 @@
 import Foundation
 
 @available(*, deprecated, message: "Deprecated")
-public struct AppPriceTier: Codable, Identifiable {
+public struct AppPriceTier: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var relationships: Relationships?
@@ -14,17 +14,17 @@ public struct AppPriceTier: Codable, Identifiable {
 		case appPriceTiers
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		/// - warning: Deprecated.
 		public var pricePoints: PricePoints?
 
 		@available(*, deprecated, message: "Deprecated")
-		public struct PricePoints: Codable {
+		public struct PricePoints: Codable, Equatable {
 			public var links: Links?
 			public var meta: PagingInformation?
 			public var data: [Datum]?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -46,7 +46,7 @@ public struct AppPriceTier: Codable, Identifiable {
 				}
 			}
 
-			public struct Datum: Codable, Identifiable {
+			public struct Datum: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

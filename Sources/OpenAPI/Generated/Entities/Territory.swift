@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct Territory: Codable, Identifiable {
+public struct Territory: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -13,7 +13,7 @@ public struct Territory: Codable, Identifiable {
 		case territories
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var currency: String?
 
 		public init(currency: String? = nil) {

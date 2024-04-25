@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct AlternativeDistributionDomainCreateRequest: Codable {
+public struct AlternativeDistributionDomainCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 
@@ -14,7 +14,7 @@ public struct AlternativeDistributionDomainCreateRequest: Codable {
 			case alternativeDistributionDomains
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var domain: String
 			public var referenceName: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterAchievementRelease: Codable, Identifiable {
+public struct GameCenterAchievementRelease: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var attributes: Attributes?
@@ -14,7 +14,7 @@ public struct GameCenterAchievementRelease: Codable, Identifiable {
 		case gameCenterAchievementReleases
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var isLive: Bool?
 
 		public init(isLive: Bool? = nil) {
@@ -32,15 +32,15 @@ public struct GameCenterAchievementRelease: Codable, Identifiable {
 		}
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var gameCenterDetail: GameCenterDetail?
 		public var gameCenterAchievement: GameCenterAchievement?
 
-		public struct GameCenterDetail: Codable {
+		public struct GameCenterDetail: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -62,7 +62,7 @@ public struct GameCenterAchievementRelease: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 
@@ -106,11 +106,11 @@ public struct GameCenterAchievementRelease: Codable, Identifiable {
 			}
 		}
 
-		public struct GameCenterAchievement: Codable {
+		public struct GameCenterAchievement: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -132,7 +132,7 @@ public struct GameCenterAchievementRelease: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

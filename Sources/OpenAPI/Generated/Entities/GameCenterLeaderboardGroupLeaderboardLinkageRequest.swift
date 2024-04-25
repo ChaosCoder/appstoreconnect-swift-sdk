@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct GameCenterLeaderboardGroupLeaderboardLinkageRequest: Codable {
+public struct GameCenterLeaderboardGroupLeaderboardLinkageRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 

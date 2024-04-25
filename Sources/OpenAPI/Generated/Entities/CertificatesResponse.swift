@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CertificatesResponse: Codable {
+public struct CertificatesResponse: Codable, Equatable {
 	public var data: [Certificate]
 	public var links: PagedDocumentLinks
 	public var meta: PagingInformation?

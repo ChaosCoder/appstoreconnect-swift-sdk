@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct InAppPurchaseSubmission: Codable, Identifiable {
+public struct InAppPurchaseSubmission: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String
 	public var relationships: Relationships?
@@ -13,14 +13,14 @@ public struct InAppPurchaseSubmission: Codable, Identifiable {
 		case inAppPurchaseSubmissions
 	}
 
-	public struct Relationships: Codable {
+	public struct Relationships: Codable, Equatable {
 		public var inAppPurchaseV2: InAppPurchaseV2?
 
-		public struct InAppPurchaseV2: Codable {
+		public struct InAppPurchaseV2: Codable, Equatable {
 			public var links: Links?
 			public var data: Data?
 
-			public struct Links: Codable {
+			public struct Links: Codable, Equatable {
 				public var this: String?
 				public var related: String?
 
@@ -42,7 +42,7 @@ public struct InAppPurchaseSubmission: Codable, Identifiable {
 				}
 			}
 
-			public struct Data: Codable, Identifiable {
+			public struct Data: Codable, Equatable, Identifiable {
 				public var type: `Type`
 				public var id: String
 

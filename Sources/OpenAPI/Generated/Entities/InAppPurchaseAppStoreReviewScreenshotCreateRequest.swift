@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct InAppPurchaseAppStoreReviewScreenshotCreateRequest: Codable {
+public struct InAppPurchaseAppStoreReviewScreenshotCreateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable {
+	public struct Data: Codable, Equatable {
 		public var type: `Type`
 		public var attributes: Attributes
 		public var relationships: Relationships
@@ -15,7 +15,7 @@ public struct InAppPurchaseAppStoreReviewScreenshotCreateRequest: Codable {
 			case inAppPurchaseAppStoreReviewScreenshots
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var fileSize: Int
 			public var fileName: String
 
@@ -37,13 +37,13 @@ public struct InAppPurchaseAppStoreReviewScreenshotCreateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var inAppPurchaseV2: InAppPurchaseV2
 
-			public struct InAppPurchaseV2: Codable {
+			public struct InAppPurchaseV2: Codable, Equatable {
 				public var data: Data
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

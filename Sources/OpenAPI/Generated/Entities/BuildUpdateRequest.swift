@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct BuildUpdateRequest: Codable {
+public struct BuildUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -16,7 +16,7 @@ public struct BuildUpdateRequest: Codable {
 			case builds
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var isExpired: Bool?
 			public var usesNonExemptEncryption: Bool?
 
@@ -38,13 +38,13 @@ public struct BuildUpdateRequest: Codable {
 			}
 		}
 
-		public struct Relationships: Codable {
+		public struct Relationships: Codable, Equatable {
 			public var appEncryptionDeclaration: AppEncryptionDeclaration?
 
-			public struct AppEncryptionDeclaration: Codable {
+			public struct AppEncryptionDeclaration: Codable, Equatable {
 				public var data: Data?
 
-				public struct Data: Codable, Identifiable {
+				public struct Data: Codable, Equatable, Identifiable {
 					public var type: `Type`
 					public var id: String
 

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CertificateResponse: Codable {
+public struct CertificateResponse: Codable, Equatable {
 	/// Certificate
 	public var data: Certificate
 	public var links: DocumentLinks

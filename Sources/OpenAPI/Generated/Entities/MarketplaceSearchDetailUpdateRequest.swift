@@ -3,10 +3,10 @@
 
 import Foundation
 
-public struct MarketplaceSearchDetailUpdateRequest: Codable {
+public struct MarketplaceSearchDetailUpdateRequest: Codable, Equatable {
 	public var data: Data
 
-	public struct Data: Codable, Identifiable {
+	public struct Data: Codable, Equatable, Identifiable {
 		public var type: `Type`
 		public var id: String
 		public var attributes: Attributes?
@@ -15,7 +15,7 @@ public struct MarketplaceSearchDetailUpdateRequest: Codable {
 			case marketplaceSearchDetails
 		}
 
-		public struct Attributes: Codable {
+		public struct Attributes: Codable, Equatable {
 			public var catalogURL: URL?
 
 			public init(catalogURL: URL? = nil) {

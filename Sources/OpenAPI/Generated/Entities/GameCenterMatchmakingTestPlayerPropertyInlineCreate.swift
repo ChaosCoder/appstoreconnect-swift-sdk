@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct GameCenterMatchmakingTestPlayerPropertyInlineCreate: Codable, Identifiable {
+public struct GameCenterMatchmakingTestPlayerPropertyInlineCreate: Codable, Equatable, Identifiable {
 	public var type: `Type`
 	public var id: String?
 	public var attributes: Attributes
@@ -12,7 +12,7 @@ public struct GameCenterMatchmakingTestPlayerPropertyInlineCreate: Codable, Iden
 		case gameCenterMatchmakingTestPlayerProperties
 	}
 
-	public struct Attributes: Codable {
+	public struct Attributes: Codable, Equatable {
 		public var playerID: String
 		public var properties: [Property]?
 

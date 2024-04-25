@@ -37,8 +37,15 @@ paths:
     application/vnd.apple.diagnostic-logs+json: DiagnosticLogs
     application/vnd.apple.xcode-metrics+json: XcodeMetrics
 
+rename:
+  entities:
+    # Rename MetricCategory enum to MetricCategoryIdentifier to disambiguate same named entities
+    MetricCategory: MetricCategoryIdentifier
+
 entities:
   # Uses a single StringCodingKey type allowing string literals to be used in the place of individual CodingKey enum types
   optimizeCodingKeys: true
   # Automatically generate Identifiable conformance for entities that include an id property.
   includeIdentifiableConformance: true
+  # Include Codable (default) and Equatable conformance to all entities
+  protocols: [Codable, Equatable]
