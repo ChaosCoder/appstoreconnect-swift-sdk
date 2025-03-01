@@ -54,12 +54,7 @@ public struct Request<Response> {
 
 extension Request {
 
-    internal var baseURL: URL {
-        // swiftlint:disable:next force_unwrapping
-        return URL(string: "https://api.appstoreconnect.apple.com")!
-    }
-
-    private func makeURL(path: String, query: [(String, String?)]?) throws -> URL {
+    private func makeURL(baseURL: URL, path: String, query: [(String, String?)]?) throws -> URL {
         let url = baseURL.appendingPathComponent(path)
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             throw URLError(.badURL)
@@ -74,8 +69,8 @@ extension Request {
     }
 
     /// Generates a request based on the current endpoint.
-    public func asURLRequest(encoder: JSONEncoder) throws -> URLRequest {
-        let url = try makeURL(path: path, query: query)
+    public func asURLRequest(baseURL: URL, encoder: JSONEncoder) throws -> URLRequest {
+        let url = try makeURL(baseURL: baseURL, path: path, query: query)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method
 

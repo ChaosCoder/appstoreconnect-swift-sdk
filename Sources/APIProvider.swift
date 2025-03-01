@@ -217,6 +217,11 @@ public final class APIProvider {
         })
         return decoder
     }()
+    
+    public static var defaultBaseURL: URL { URL(string: "https://api.appstoreconnect.apple.com")! }
+    
+    /// Base URL
+    public let baseURL: URL
 
     /// The configuration needed to set up the API Provider including all needed information for performing API requests.
     private let configuration: APIConfiguration
@@ -238,7 +243,8 @@ public final class APIProvider {
     /// - Parameters:
     ///   - configuration: The configuration needed to set up the API Provider including all needed information for performing API requests.
     ///   - requestExecutor: An instance conforming to the RequestExecutor protocol for executing URLRequest
-    public init(configuration: APIConfiguration, requestExecutor: RequestExecutor = DefaultRequestExecutor()) {
+    public init(baseURL: URL = defaultBaseURL, configuration: APIConfiguration, requestExecutor: RequestExecutor = DefaultRequestExecutor()) {
+        self.baseURL = baseURL
         self.configuration = configuration
         self.requestExecutor = requestExecutor
         self.requestsAuthenticator = JWTRequestsAuthenticator(apiConfiguration: configuration)
@@ -252,7 +258,7 @@ public final class APIProvider {
     ///   - endpoint: The API endpoint to request.
     ///   - completion: The completion callback which will be called on completion containing the result.
     public func request(_ request: Request<Void>, completion: @escaping RequestCompletionHandler<Void>) {
-        guard let request = try? requestsAuthenticator.adapt(request.asURLRequest(encoder: encoder)) else {
+        guard let request = try? requestsAuthenticator.adapt(request.asURLRequest(baseURL: baseURL, encoder: encoder)) else {
             completion(.failure(Error.requestGeneration))
             return
         }
@@ -266,7 +272,7 @@ public final class APIProvider {
     ///   - endpoint: The API endpoint to request.
     ///   - completion: The completion callback which will be called on completion containing the result.
     public func request<T: Decodable>(_ request: Request<T>, completion: @escaping RequestCompletionHandler<T>) {
-        guard let request = try? requestsAuthenticator.adapt(request.asURLRequest(encoder: encoder)) else {
+        guard let request = try? requestsAuthenticator.adapt(request.asURLRequest(baseURL: baseURL, encoder: encoder)) else {
             completion(.failure(Error.requestGeneration))
             return
         }
@@ -280,7 +286,7 @@ public final class APIProvider {
     ///   - endpoint: The API endpoint to request.
     ///   - completion: The completion callback which will be called on completion containing the result.
     public func download<T: Decodable>(_ request: Request<T>, completion: @escaping RequestCompletionHandler<URL>) {
-        guard let request = try? requestsAuthenticator.adapt(request.asURLRequest(encoder: encoder)) else {
+        guard let request = try? requestsAuthenticator.adapt(request.asURLRequest(baseURL: baseURL, encoder: encoder)) else {
             completion(.failure(Error.requestGeneration))
             return
         }
